@@ -1,0 +1,94 @@
+
+<button type="button" id="boto_novaentrada_accepta" class="btn btn-default">Accepta</button>
+<button type="button" id="boto_novaentrada_cancela" class="btn btn-default">Cancel·la</button>
+
+<script>
+	//Acció en pitjar els botons
+	$('#boto_novaentrada_accepta').on('click', function(event) {
+		$("#cos_pagina").load("inici.html"); 
+	});
+
+	$('#boto_novaentrada_cancela').on('click', function(event) {
+		$("#cos_pagina").load("inici.html"); 
+	});
+
+
+</script>
+
+
+<div class="formulari">
+<h3> Nou medicament</h3>
+
+
+	<div class="seccio_cos">
+
+		<form class="form-horizontal">
+
+			<div class="form-group">
+				<label for="input_nom" class="col-sm-2 control-label">Nom</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="inputEmail3" placeholder="Nom del medicament">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="input_descripcio" class="col-sm-2 control-label">Descripció</label>
+				<div class="col-sm-10">
+					<textarea class="form-control" rows="3" placeholder="Descripció del medicament"></textarea>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="input_descripcio" class="col-sm-2 control-label">Categoria</label>
+				<div class="col-sm-10">
+					<select class="form-control">
+					  <option>1</option>
+					  <option>2</option>
+					  <option>3</option>
+					  <option>4</option>
+					  <option>5</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="input_descripcio" class="col-sm-2 control-label">Imatge</label>
+				<div class="col-sm-10">
+					<input type="file" id="files" name="files[]"/><output id="list"></output>
+				</div>
+			</div>
+
+
+		</form>
+
+
+
+    <script>
+        function handleFileSelect(evt) {
+            var files = evt.target.files; // FileList object
+
+            // files is a FileList of File objects. List some properties.
+            var output = [];
+            for (var i = 0, f; f = files[i]; i++) {
+               readMyFile(f);
+            }
+        }
+        document.getElementById('files').addEventListener('change', handleFileSelect, false);
+    </script>
+
+<button type="button" onclick="alert(document.getElementById('files').value)">Cancel·la</button>
+
+
+	</div>
+
+
+
+
+
+</form>
+</div>
+
+
+
+
+

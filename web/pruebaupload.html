@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Upload test</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="upload.js"></script>
+    </head>
+    <body>
+    <center>
+        <style type="text/css">
+            iframe {width:100%; border:none; }
+        </style>
+        <iframe src="cabeceras/general.html"></iframe>
+    </center>
+    <h1>Upload image file test operation</h1> <br>
+    (link in WS_URL + Path: files/images/&lt;name_of_uploaded_file&gt;)<br><br>
+    Before user makes image upload process the link is broken <br>
+    After uploaded image file the link is valid
+    <br>
+    <!--
+    Ejemplo de lectura
+        <input type="file" id="files" name="files[]" multiple /> para multiples selecciones
+    -->
+    <input type="file" id="files" name="files[]"/>
+    <output id="list"></output>
+
+    <script>
+        function handleFileSelect(evt) {
+            var files = evt.target.files; // FileList object
+
+            // files is a FileList of File objects. List some properties.
+            var output = [];
+            for (var i = 0, f; f = files[i]; i++) {
+               readMyFile(f);
+            }
+        }
+        document.getElementById('files').addEventListener('change', handleFileSelect, false);
+    </script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+
+	<meta charset="UTF-8">
+	<title>Farmàcia</title>
+
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="css/farmacia.css">
+
+	<script src="js/jquery.min.js"></script>
+
+	<script src="js/sorttable.js"></script>
+	<script src="js/farmacia_menu.js"></script>
+	<script type="text/javascript" src="upload.js"></script>
+
+
+
+</head>
+<body id="medicaments">
+	<nav role="navigation" class="navbar-default header-top"> 
+	<div class="container-fluid">
+		<div class="navbar-header"> 
+			<a href="#" class="navbar-brand">Farmàcia</a>
+			<a style="position: absolute; right: 5%;" class="navbar-brand">     
+				<select id="menu_selector" class="selectpicker">
+					<option id="load_admin_menu" onclick="loadXMLDoc_administrador()" >Administrador magatzem</option>
+					<option id="load_farm_menu"onclick="loadXMLDoc_farmaceutic()" >Farmacèutic</option>
+				</select>
+			</a>
+		</div>
+	</div>
+	</nav>
+
+
+
+	<div id="menu_ppal" class="sidebar-nav-fixed affix">
+
+	</div>
+
+	<div id="cos_pagina" class="cos_principal">
+
+
+		<button type="button" class="btn btn-default" id="boto_noumedicament" >Nou medicament</button>
+		<script>
+
+			//Acció en pitjar el botó nova entrada
+			$('#boto_noumedicament').on('click', function(event) {
+				$("#cos_pagina").load("nou_medicament.html"); 
+			});
+		</script>
+
+
+		<div class="noticia">
+		<h3> Llista medicaments</h3>
+			<div class="seccio_cos">
+
+
+			<table
+			class="taula_dades sortable" id="table1"
+			border="1" cellpadding="2" cellspacing="2">
+
+
+				<thead> 
+					<tr> 
+						<th>Last sName</th> 
+						<th>First Name</th> 
+						<th>Email</th> 
+					</tr> 
+				</thead> 
+				<tbody>
+					<tr>
+						<td>raquel</td>
+						<td>C1</td>
+						<td>2</td>
+
+					</tr>
+					<tr>
+						<td>joan</td>
+						<td>C1</td>
+						<td>4</td>
+
+					</tr>
+					<tr>
+						<td>miquel</td>
+						<td>C1</td>
+						<td>3</td>
+
+					</tr>
+					<tr>
+						<td>aina</td>
+						<td>C1</td>
+						<td>1</td>
+
+					</tr>
+
+
+				</tbody>		
+			</table>
+
+			</div>
+
+
+
+
+
+		</div>
+
+
+
+
+
+
+	</div>
+
+
+</body></html>

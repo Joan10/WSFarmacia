@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>CRUD TEST</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="upload.js"></script>
+        <script>
+            function doAltaFa() {
+                text = "farmacias@@LTIM@@alta@@LTIM@@Aragón@@LTIM@@pantomima@@LTIM@@0";
+                soapDBWSFarmacia(text);
+            }
+
+            function doAltaCa() {
+                text = "categorias@@LTIM@@alta@@LTIM@@Antibióticos@@LTIM@@Medicamentos que contienen antibiótico@@LTIM@@antibiotico.png";
+                soapDBWSFarmacia(text);
+            }
+
+            function doAltaMe() {
+                text = "medicamentos@@LTIM@@alta@@LTIM@@2@@LTIM@@descripción@@LTIM@@nombre.png" +
+                        "@@LTIM@@nombre@@LTIM@@00000X@@LTIM@@12";
+                soapDBWSFarmacia(text);
+            }
+
+            function doAltaEn() {
+                text = "entradas@@LTIM@@alta@@LTIM@@1@@LTIM@@5@@LTIM@@2014-11-26 17:48:56";
+                soapDBWSFarmacia(text);
+            }
+
+            function doAltaSa() {
+                text = "salidas@@LTIM@@alta@@LTIM@@1@@LTIM@@1@@LTIM@@5@@LTIM@@2014-11-21 17:48:56";
+                soapDBWSFarmacia(text);
+            }
+
+            function doAltaNo() {
+                text = "noticias@@LTIM@@alta@@LTIM@@Soy una noticia nueva@@LTIM@@2014-12-02@@LTIM@@2014-12-19";
+                soapDBWSFarmacia(text);
+            }
+
+            function doListaFa() {
+                text = "farmacias@@LTIM@@lista";
+                soapDBWSFarmacia(text);
+            }
+
+            function doListaCa() {
+                text = "categorias@@LTIM@@lista";
+                soapDBWSFarmacia(text);
+            }
+
+            function doListaMe() {
+                text = "medicamentos@@LTIM@@lista";
+                soapDBWSFarmacia(text);
+            }
+
+            function doListaEn() {
+                text = "entradas@@LTIM@@lista";
+                soapDBWSFarmacia(text);
+            }
+
+            function doListaSa() {
+                text = "salidas@@LTIM@@lista";
+                soapDBWSFarmacia(text);
+            }
+
+            function doListaNo() {
+                text = "noticias@@LTIM@@lista";
+                soapDBWSFarmacia(text);
+            }
+
+            function doListaentrefechasEn() {
+                text = "entradas@@LTIM@@listaentrefechas@@LTIM@@2014-11-14@@LTIM@@2014-11-27";
+                soapDBWSFarmacia(text);
+            }
+
+            function doListaentrefechasSa() {
+                text = "salidas@@LTIM@@listaentrefechas@@LTIM@@2014-11-14@@LTIM@@2014-11-27";
+                soapDBWSFarmacia(text);
+            }
+
+            function doListaenfechaNo(dia) {
+                text = "noticias@@LTIM@@listaenfecha@@LTIM@@2014-11-" + dia;
+                soapDBWSFarmacia(text);
+            }
+
+            function doConsultaFa() {
+                text = "farmacias@@LTIM@@consulta@@LTIM@@Milano";
+                soapDBWSFarmacia(text);
+            }
+
+            function doConsultaCa() {
+                text = "categorias@@LTIM@@consulta@@LTIM@@Higiene";
+                soapDBWSFarmacia(text);
+            }
+
+            function doConsultaMe() {
+                text = "medicamentos@@LTIM@@consulta@@LTIM@@Filvit champú 200 ml";
+                soapDBWSFarmacia(text);
+            }
+
+            function doConsultaNo() {
+                text = "noticias@@LTIM@@consulta@@LTIM@@2";
+                soapDBWSFarmacia(text);
+            }
+
+            function doBajaFa() {
+                text = "farmacias@@LTIM@@baja@@LTIM@@Aragón";
+                soapDBWSFarmacia(text);
+            }
+
+            function doBajaCa() {
+                text = "categorias@@LTIM@@baja@@LTIM@@Antibióticos";
+                soapDBWSFarmacia(text);
+            }
+
+            function doBajaMe() {
+                text = "medicamentos@@LTIM@@baja@@LTIM@@nombre";
+                soapDBWSFarmacia(text);
+            }
+
+            function doModificacionFa() {
+                text = "farmacias@@LTIM@@modificacion@@LTIM@@Aragón@@LTIM@@cachorro@@LTIM@@22";
+                soapDBWSFarmacia(text);
+            }
+
+            function doModificacionCa() {
+                text = "categorias@@LTIM@@modificacion@@LTIM@@Antibióticos@@LTIM@@No hay texto@@LTIM@@antibiotico.png";
+                soapDBWSFarmacia(text);
+            }
+
+            function doModificacionMe() {
+                text = "medicamentos@@LTIM@@modificacion@@LTIM@@2@@LTIM@@descripción@@LTIM@@nombre.png" +
+                        "@@LTIM@@nombre@@LTIM@@00000X@@LTIM@@7";
+                soapDBWSFarmacia(text);
+            }
+
+            function doModificacionNo() {
+                text = "noticias@@LTIM@@modificacion@@LTIM@@1@@LTIM@@Soy una noticia que va del 16 al 25t"
+                        + "@@LTIM@@2014-11-16 00:00:00@@LTIM@@2014-11-25 00:00:00";
+                soapDBWSFarmacia(text);
+            }
+
+            function doSumaenalmacenMe() {
+                text = "medicamentos@@LTIM@@sumaenalmacen@@LTIM@@nombre@@LTIM@@2";
+                soapDBWSFarmacia(text);
+            }
+
+            function doFechaHora() {
+                text = "fechahora";
+                soapDBWSFarmacia(text);
+            }
+        </script>
+    </head>
+    <body>
+    <center>
+        <style type="text/css">
+            iframe {width:100%; border:none; }
+        </style>
+        <iframe src="cabeceras/general.html"></iframe>
+    </center>
+    <h1>Testing set of CRUD DB operations</h1>
+    <br>
+    <br><br>farmacias:<br>
+    Lista de las farmacias
+    <input type="button" value="Lista" onclick="doListaFa();" />
+    <br>
+    Consulta de una farmacia (Milano)
+    <input type="button" value="Consulta" onclick="doConsultaFa();" />
+    <br>
+    Alta de farmacia (Aragón - pantomima - 0)
+    <input type="button" value="Alta" onclick="doAltaFa();" />
+    <br>
+    Baja de farmacia (Aragón)
+    <input type="button" value="Baja" onclick="doBajaFa();" />
+    <br>
+    Modificación de farmacia (Aragón - cachorro - 22)
+    <input type="button" value="Modificacion" onclick="doModificacionFa();" />
+    <br><br>categorías<br>
+    Lista de las categorías
+    <input type="button" value="Lista" onclick="doListaCa();" />
+    <br>
+    Consulta de una categoría (Higiene)
+    <input type="button" value="Consulta" onclick="doConsultaCa();" />
+    <br>
+    Alta de categoría (Antobióticos - ...)
+    <input type="button" value="Alta" onclick="doAltaCa();" />
+    <br>
+    Baja de categorías (Antibióticos)
+    <input type="button" value="Baja" onclick="doBajaCa();" />
+    <br>
+    Modificación de categoría (Antibióticos, no text - antibioticos.png)
+    <input type="button" value="Modificacion" onclick="doModificacionCa();" />
+    <br><br>medicamentos:<br>
+    Lista de los medicamentos
+    <input type="button" value="Lista" onclick="doListaMe();" />
+    <br>
+    Consulta de un medicamento (Filvit champú 200 ml)
+    <input type="button" value="Consulta" onclick="doConsultaMe();" />
+    <br>
+    Alta de medicamento (2 - descripción - ...)
+    <input type="button" value="Alta" onclick="doAltaMe();" />
+    <br>
+    Baja de medicamentos (nombre)
+    <input type="button" value="Baja" onclick="doBajaMe();" />
+    <br>
+    Modificación de medicamentos (2 - descripción - ... - 7)
+    <input type="button" value="Modificacion" onclick="doModificacionMe();" />
+    <br>
+    Incrementa numero en almacen en dos (nombre, el incremento puede ser negativo)
+    <input type="button" value="Suma en almacen" onclick="doSumaenalmacenMe();" />
+    <br><br>entradas:<br>
+    Lista de las entradas
+    <input type="button" value="Lista" onclick="doListaEn();" />
+    <br>
+    Lista de las entradas entre fechas (11-14 to 11-27)
+    <input type="button" value="Lista entre fechas" onclick="doListaentrefechasEn();" />
+    <br>
+    Alta de entrada (idmedicamento = 1, cantidad = 5, 26 del 11)
+    <input type="button" value="Alta" onclick="doAltaEn();" />
+    <br>
+    <br><br>salidas:<br>
+    Lista de las salidas
+    <input type="button" value="Lista" onclick="doListaSa();" />
+    <br>
+    Lista de las salidas entre fechas (11-14 to 11-27)
+    <input type="button" value="Lista entre fechas" onclick="doListaentrefechasSa();" />
+    <br>
+    Alta de salida (idfarmacia = 1, idmedicamento = 1, cantidad = 3, 21 del 11)
+    <input type="button" value="Alta" onclick="doAltaSa();" />
+    <br>
+    <br><br>noticias:<br>
+    Lista de las noticias
+    <input type="button" value="Lista" onclick="doListaNo();" />
+    <br>
+    Lista de las noticias válidas en fecha (21 del 11 del 14)
+    <input type="button" value="Lista en fecha" onclick="doListaenfechaNo('21');" />
+    <br>
+    Lista de las noticias válidas en fecha (23 del 11 del 14)
+    <input type="button" value="Lista en fecha" onclick="doListaenfechaNo('23');" />
+    <br>
+    Lista de las noticias válidas en fecha (27 del 11 del 14)
+    <input type="button" value="Lista en fecha" onclick="doListaenfechaNo('27');" />
+    <br>
+    Consulta una noticia por identificador (id = 2)
+    <input type="button" value="Consulta" onclick="doConsultaNo();" />
+    <br>
+    Alta de una noticia (noticia nueva - 2014-12-02 - 2014-12-19)
+    <input type="button" value="Alta" onclick="doAltaNo();" />
+    <br>
+    Modificación de la noticia 1 (añade una t al final del texto)
+    <input type="button" value="Modificación" onclick="doModificacionNo();" />
+    <br>
+    <br><br>servicio de fecha y hora:<br>
+    Fecha y hora del servidor
+    <input type="button" value="FechaHora" onclick="doFechaHora();" />
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+</body>
+</html>

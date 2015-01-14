@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+
+	<meta charset="UTF-8">
+	<title>Farmàcia</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="farmacia.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+	<script> 
+	$(function(){
+	var e = document.getElementById("menu_selector");
+	var strUser = e.options[e.selectedIndex].index;
+	if ( strUser == 0 ) {
+		$("#menu_ppal").load("menu_ppal_administrador.dat"); 
+	}else if ( strUser == 1 ) {
+		$("#menu_ppal").load("menu_ppal_farmaceutic.dat"); 
+	}
+	});
+	</script> 
+
+
+	<script>
+	function loadXMLDoc_farmaceutic()
+	{
+	var xmlhttp;
+	if (window.XMLHttpRequest)
+	  {// code for IE7+, Firefox, Chrome, Opera, Safari
+	  xmlhttp=new XMLHttpRequest();
+	  }
+	else
+	  {// code for IE6, IE5
+	  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	  }
+	xmlhttp.onreadystatechange=function()
+	  {
+	  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+	    {
+	    document.getElementById("menu_ppal").innerHTML=xmlhttp.responseText;
+	    }
+	  }
+	xmlhttp.open("GET","menu_ppal_farmaceutic.dat",true);
+	xmlhttp.send();
+	}
+
+	function loadXMLDoc_administrador()
+	{
+	var xmlhttp;
+	if (window.XMLHttpRequest)
+	  {// code for IE7+, Firefox, Chrome, Opera, Safari
+	  xmlhttp=new XMLHttpRequest();
+	  }
+	else
+	  {// code for IE6, IE5
+	  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	  }
+	xmlhttp.onreadystatechange=function()
+	  {
+	  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+	    {
+	    document.getElementById("menu_ppal").innerHTML=xmlhttp.responseText;
+	    }
+	  }
+	xmlhttp.open("GET","menu_ppal_administrador.dat",true);
+	xmlhttp.send();
+	}
+	</script>
+
+</head>
+<body>
+	<nav role="navigation" class="navbar-default header-top"> 
+	<div class="container-fluid">
+		<div class="navbar-header"> 
+			<a href="#" class="navbar-brand">Farmàcia</a>
+			<a style="position: absolute; right: 5%;" class="navbar-brand">     
+				<select id="menu_selector" class="selectpicker">
+					<option onclick="loadXMLDoc_administrador()" >Administrador magatzem</option>
+					<option onclick="loadXMLDoc_farmaceutic()" >Farmacèutic</option>
+				</select>
+			</a>
+		</div>
+	</div>
+	</nav>
+
+
+	<div id="menu_ppal" class="sidebar-nav-fixed affix">
+
+	</div>
+
+	<div class="cos_principal"> BODY HIERBODY HIERBODY HIERBODY HIERBODY HIERBODY HIERBODY HIERBODY HIERBODY HIERBODY HIERBODY HIERBODY HIER BODY HIERBODY HIERBODY HIERBODY HIERBODY HIERBODY HIERBODY HIERBODY HIERBODY HIERBODY HIERBODY HIERBODY HIERBODY HIERBODY HIERBODY HIERBODY HIERBODY HIERBODY HIERBODY HIERBODY HIERBODY HIERBODY HIERBODY HIERBODY HIERBODY HIERBODY HIERBODY HIERBODY HIERBODY HIERBODY HIERBODY HIERBODY HIERBODY HIERBODY HIERBODY HIERBODY HIERBODY HIERBODY HIERBODY HIERBODY HIERBODY HIERBODY HIERBODY HIERBODY HIERBODY HIERBODY HIERBODY HIERBODY HIER</div>
+
+</body></html>

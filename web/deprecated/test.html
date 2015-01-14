@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+
+	<meta charset="UTF-8">
+	<title>Farmàcia</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="farmacia.css">
+
+
+	<script type="text/javascript" src="tablesorter/jquery-latest.js"></script> 
+	<script type="text/javascript" src="tablesorter/jquery.tablesorter.js"></script> 
+	<script src="farmacia_menu.js"></script>
+
+	<script >
+		$(document).ready(function() 
+		    { 
+			$("#myTable").tablesorter(); 
+		    } 
+		); 
+	</script>
+
+</head>
+<body>
+
+
+
+	<nav role="navigation" class="navbar-default header-top"> 
+	<div class="container-fluid">
+		<div class="navbar-header"> 
+			<a href="#" class="navbar-brand">Farmàcia</a>
+			<a style="position: absolute; right: 5%;" class="navbar-brand">     
+				<select id="menu_selector" class="selectpicker">
+					<option onclick="loadXMLDoc_administrador()" >Administrador magatzem</option>
+					<option onclick="loadXMLDoc_farmaceutic()" >Farmacèutic</option>
+				</select>
+			</a>
+		</div>
+	</div>
+	</nav>
+
+
+	<div id="menu_ppal" class="sidebar-nav-fixed affix">
+
+	</div>
+
+	<div id="cos_pagina" class="cos_principal">
+
+		
+		<script>
+			document.write(get_usuari());
+		</script>
+
+<table id="myTable" class="tablesorter"> 
+<thead> 
+<tr> 
+    <th>Last sName</th> 
+    <th>First Name</th> 
+    <th>Email</th> 
+    <th>Due</th> 
+    <th>Web Site</th> 
+</tr> 
+</thead> 
+<tbody> 
+<tr> 
+    <td>Smith</td> 
+    <td>John</td> 
+    <td>jsmith@gmail.com</td> 
+    <td>$50.00</td> 
+    <td>http://www.jsmith.com</td> 
+</tr> 
+<tr> 
+    <td>Bach</td> 
+    <td>Frank</td> 
+    <td>fbach@yahoo.com</td> 
+    <td>$50.00</td> 
+    <td>http://www.frank.com</td> 
+</tr> 
+<tr> 
+    <td>Doe</td> 
+    <td>Jason</td> 
+    <td>jdoe@hotmail.com</td> 
+    <td>$100.00</td> 
+    <td>http://www.jdoe.com</td> 
+</tr> 
+<tr> 
+    <td>Conway</td> 
+    <td>Tim</td> 
+    <td>tconway@earthlink.net</td> 
+    <td>$50.00</td> 
+    <td>http://www.timconway.com</td> 
+</tr> 
+</tbody> 
+</table> 
+
+
+	</div>
+
+
+</body></html>

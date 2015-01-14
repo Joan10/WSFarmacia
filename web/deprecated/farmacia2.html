@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+
+	<meta charset="UTF-8">
+	<title>Farmàcia</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="farmacia.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+	<script src="sorttable.js"></script>
+	<script src="farmacia_menu.js"></script>
+
+</head>
+<body>
+	<nav role="navigation" class="navbar-default header-top"> 
+	<div class="container-fluid">
+		<div class="navbar-header"> 
+			<a href="#" class="navbar-brand">Farmàcia</a>
+			<a style="position: absolute; right: 5%;" class="navbar-brand">     
+				<select id="menu_selector" class="selectpicker">
+					<option onclick="loadXMLDoc_administrador()" >Administrador magatzem</option>
+					<option onclick="loadXMLDoc_farmaceutic()" >Farmacèutic</option>
+				</select>
+			</a>
+		</div>
+	</div>
+	</nav>
+
+
+	<div id="menu_ppal" class="sidebar-nav-fixed affix">
+
+	</div>
+
+	<div id="cos_pagina" class="cos_principal">
+
+	
+
+	</div>
+
+
+</body></html>

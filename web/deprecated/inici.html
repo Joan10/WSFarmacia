@@ -1,0 +1,93 @@
+
+<button type="button" class="btn btn-default" id="boto_novaentrada" >Nova entrada</button>
+
+
+<script>
+	$(document).ready(function() 
+	    { 
+		table1 = document.getElementById("table1");
+		sorttable.makeSortable(table1);
+	    } 
+	); 
+
+	//Acció en pitjar el botó nova entrada
+	$('#boto_novaentrada').on('click', function(event) {
+		$("#cos_pagina").load("nova_noticia.html"); 
+	});
+</script>
+
+<div class="noticia">
+<h3> HEADER 1</h3>
+	<div class="seccio_cos">
+
+	Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 2 
+
+	</div>
+
+
+	<table
+	class="taula_dades sortable" id="table1"
+	border="1" cellpadding="2" cellspacing="2">
+
+
+		<thead> 
+			<tr> 
+			    <th>Last sName</th> 
+			    <th>First Name</th> 
+			    <th>Email</th> 
+			</tr> 
+		</thead> 
+		<tbody>
+			<tr>
+				<td>raquel</td>
+				<td>C1</td>
+				<td>2</td>
+
+			</tr>
+			<tr>
+				<td>joan</td>
+				<td>C1</td>
+				<td>4</td>
+
+			</tr>
+			<tr>
+				<td>miquel</td>
+				<td>C1</td>
+				<td>3</td>
+
+			</tr>
+			<tr>
+				<td>aina</td>
+				<td>C1</td>
+				<td>1</td>
+
+			</tr>
+
+
+		</tbody>		
+	</table>
+
+
+
+
+	<br>
+	<table style="text-align: left; width: 10%; margin-left: auto; margin-right: 0px;" border="0" cellpadding="2" cellspacing="2">
+			<tr>
+				<td style="vertical-align: top;">Edita
+			</td>
+				<td style="vertical-align: top;">Elimina
+			</td>
+			</tr>
+		</tbody>
+	</table>
+
+
+
+
+
+</div>
+
+
+
+
+

@@ -1,0 +1,59 @@
+
+<button type="button" id="boto_novaentrada_accepta" class="btn btn-default">Accepta</button>
+<button type="button" id="boto_novaentrada_cancela" class="btn btn-default">Cancel·la</button>
+
+<script>
+	//Acció en pitjar els botons
+	$('#boto_novaentrada_accepta').on('click', function(event) {
+		$("#cos_pagina").load("inici.html"); 
+	});
+
+	$('#boto_novaentrada_cancela').on('click', function(event) {
+		$("#cos_pagina").load("inici.html"); 
+	});
+
+
+</script>
+
+<div class="formulari">
+<h3> Nova notícia</h3>
+
+
+	<div class="seccio_cos ">
+
+		<form class="form-horizontal col-lg-6 col-lg-offset-0">
+
+			<div class="form-group">
+				<label for="input_nom" class="col-sm-2 control-label">Títol</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="inputEmail3" placeholder="Títol de la notícia">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="input_descripcio" class="col-sm-2 control-label">Cos</label>
+				<div class="col-sm-10">
+					<textarea class="form-control" rows="10" placeholder="Cos de la notícia"></textarea>
+				</div>
+			</div>
+
+
+
+			<div class="form-group">
+				<label for="input_descripcio" class="col-sm-2 control-label">Imatge</label>
+				<div class="col-sm-10">
+					<input type="file" id="files" name="files[]"/><output id="list"></output>
+				</div>
+			</div>
+
+
+		</form>
+
+
+
+</div>
+
+
+
+
+
