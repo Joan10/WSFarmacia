@@ -91,6 +91,4 @@ function soapDBWSFarmacia(text) {
     xmlhttp.setRequestHeader('Content-Type', 'text/xml');
     xmlhttp.send(sr);
     
-    alert("hola");
-    alert(sr);
 }
