@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es"><head>
+<html lang="ca"><head>
 
         <meta charset="UTF-8">
         <title>Farmàcia</title>
@@ -11,10 +11,6 @@
         <script src="js/jquery.min.js"></script>
         <script src="js/sorttable.js"></script>
         <script src="js/farmacia_menu.js"></script>
-        <script src="js/entradesNoticies.js"></script>
-
-
-
     </head>
     <body id="inici">
         <nav role="navigation" class="navbar-default header-top"> 
@@ -24,7 +20,7 @@
                     <a style="position: absolute; right: 5%;" class="navbar-brand">     
                         <select id="menu_selector" class="selectpicker">
                             <option id="load_admin_menu" onclick="loadXMLDoc_administrador()" >Administrador magatzem</option>
-                            <option id="load_farm_menu"onclick="loadXMLDoc_farmaceutic()" >Farmacèutic</option>
+                            <option id="load_farm_menu" onclick="loadXMLDoc_farmaceutic()" >Farmacèutic</option>
                         </select>
                     </a>
                 </div>
@@ -41,7 +37,14 @@
             
 
                 
-            <button type="button" class="btn btn-default" id="boto_novaentrada" >Nova entrada</button>
+		<button type="button" class="btn btn-default" id="boto_novanoticia" >Nova notícia</button>
+		<script>
+
+			//Acció en pitjar el botó nova noticia
+			$('#boto_novanoticia').on('click', function(event) {
+				$("#cos_pagina").load("nova_noticia.html"); 
+			});
+		</script>
 
 
             <div class="noticia">
@@ -106,5 +109,4 @@
 
             </div>
         </div>
-           
     </body></html>

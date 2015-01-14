@@ -1,14 +1,15 @@
 
-<button type="button" id="boto_novaentrada_accepta" class="btn btn-default">Accepta</button>
-<button type="button" id="boto_novaentrada_cancela" class="btn btn-default">Cancel·la</button>
+<button type="button" id="boto_novanoticia_accepta" class="btn btn-default">Accepta</button>
+<button type="button" id="boto_novanoticia_cancela" class="btn btn-default">Cancel·la</button>
 
 <script>
 	//Acció en pitjar els botons
-	$('#boto_novaentrada_accepta').on('click', function(event) {
+	// Ha de tramitar el formulari a la BBDD
+	$('#boto_novanoticia_accepta').on('click', function(event) {
 		$("#cos_pagina").load("inici.html"); 
 	});
 
-	$('#boto_novaentrada_cancela').on('click', function(event) {
+	$('#boto_novanoticia_cancela').on('click', function(event) {
 		$("#cos_pagina").load("inici.html"); 
 	});
 
