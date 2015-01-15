@@ -4,16 +4,26 @@
 <script type="text/javascript" src="js/noticies.js"></script>
 
 
+<script>
+$(document).ready(function () {
 
+	//Introduïm les dades de la notícia passada
+	console.log(id_edita);
+
+	$("#TitolNoticia").setAttribute("value", id_edita); 
+	$("#CosNoticia").value="Cos Noticia........";
+
+});
+</script>
 
 <div class="formulari">
 
-    <form id="formulariNovaNoticia">
+    <form id="formulariEditaNoticia">
         
         <!-- Pel disseny que he fet, és preferible que els botons estiguin a dalt -->
-        <button type="submit" id="boto_novanoticia_accepta" class="btn btn-default">Accepta</button>
-        <button type="button" id="boto_novanoticia_cancela" class="btn btn-default">Cancel·la</button>
-        <h3> Nova notícia</h3>
+        <button type="submit" id="boto_editanoticia_accepta" class="btn btn-default">Accepta</button>
+        <button type="button" id="boto_editanoticia_cancela" class="btn btn-default">Cancel·la</button>
+        <h3> Edita notícia</h3>
 
         <!-- div de prova
         <br><br>farmacias:<br>Lista de las farmacias
@@ -27,14 +37,14 @@
                 <div class="form-group">
                     <label for="input_nom" class="col-sm-2 control-label">Títol</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="titol" id="inputEmail3" placeholder="Introdueix el títol de la notícia...">
+                        <input type="text" class="form-control" name="titol" id="TitolNoticia" placeholder="Introdueix el títol de la notícia...">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="input_descripcio" class="col-sm-2 control-label">Cos</label>
                     <div class="col-sm-10">
-                        <textarea class="form-control" rows="10" name="cos" placeholder="Introdueix el cos de la notícia..."></textarea>
+                        <textarea class="form-control" rows="10" name="cos" id="CosNoticia" placeholder="Introdueix el cos de la notícia..."></textarea>
                     </div>
                 </div>
 

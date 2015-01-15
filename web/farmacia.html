@@ -11,6 +11,8 @@
         <script src="js/jquery.min.js"></script>
         <script src="js/sorttable.js"></script>
         <script src="js/farmacia_menu.js"></script>
+		<script src="js/noticies.js"></script>
+
     </head>
     <body id="inici">
         <nav role="navigation" class="navbar-default header-top"> 
@@ -37,15 +39,7 @@
             
 
                 
-		<button type="button" class="btn btn-default" id="boto_novanoticia" >Nova Farmàcia</button>
-		<script>
-
-			//Acció en pitjar el botó nova noticia
-			$('#boto_novanoticia').on('click', function(event) {
-				$("#cos_pagina").load("nova_noticia.html"); 
-			});
-		</script>
-
+		<button type="button" class="btn btn-default" id="boto_novanoticia" >Nova notícia</button>
 
             <div class="noticia">
                 <h3> HEADER 1</h3>
@@ -97,15 +91,13 @@
                 </table>
                 
                 <br>
-                <table style="text-align: left; width: 10%; margin-left: auto; margin-right: 0px;" border="0" cellpadding="2" cellspacing="2">
-                    <tr>
-                        <td style="vertical-align: top;">Edita
-                        </td>
-                        <td style="vertical-align: top;">Elimina
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
+
+				<div style="text-align: left; width: 10%; margin-left: auto; margin-right: 0px;">
+					<!-- Substituir el paràmetre de edita_noticia i elimina_noticia per la ID de la notícia en cada cas-->
+					<a href="#" id="boto_editanoticia_1" onclick="edita_noticia('noticia1')"> <img src="images/edit_button.png" alt=""  class="boto_med_image"></a>
+					<a href="#" id="boto_eliminanoticia_1" onclick="elimina_noticia('noticia1')"> <img src="images/delete_button.png" alt=""  class="boto_med_image"></a>
+				</div>
+
 
             </div>
         </div>
