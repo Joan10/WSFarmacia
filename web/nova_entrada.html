@@ -1,7 +1,7 @@
 
 <link rel="stylesheet" href="jstree/dist/themes/default/style.min.css" />
 
-<script src="jstree/dist/jstree.min.js"></script>
+<script src="jstree/dist/jstree.js"></script>
 
 <button type="button" id="boto_novaentrada_accepta" class="btn btn-default">Accepta</button>
 <button type="button" id="boto_novaentrada_cancela" class="btn btn-default">Cancel·la</button>
@@ -10,9 +10,12 @@
 	//Acció en pitjar els botons
 	$('#boto_novaentrada_accepta').on('click', function(event) {
 		
+                
+            var checked_ids = [];
+            nodelist=$("#plugins4").jstree('get_selected')[0];
+            console.log(nodelist);
 
-		console.log($("#plugins4").jstree("get_selected")[0].attr("id"));
-		$("#cos_pagina").load("inici.html"); 
+            
 	});
 
 	$('#boto_novaentrada_cancela').on('click', function(event) {
@@ -39,8 +42,8 @@
 									<ul>
 										<li>Categoria 1
 											<ul>
-												<li id="hola" data-jstree='{"icon":"images/tree_file.png"}' >Medicament 1</li>
-												<li data-jstree='{"icon":"images/tree_file.png"}' >Medicament 2</li>
+												<li class="fulla" id="hola" data-jstree='{"icon":"images/tree_file.png"}' >Medicament 1</li>
+												<li class="fulla" data-jstree='{"icon":"images/tree_file.png"}' >Medicament 2</li>
 											</ul>
 										</li>
 										<li>Categoria 2</li>
