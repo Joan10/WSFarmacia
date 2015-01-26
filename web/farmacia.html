@@ -11,7 +11,10 @@
         <script src="js/jquery.min.js"></script>
         <script src="js/sorttable.js"></script>
         <script src="js/farmacia_menu.js"></script>
-		<script src="js/noticies.js"></script>
+        <script src="js/noticies.js"></script>
+        <script src="upload.js"></script>
+        <script src="js/operacionsBaseDades.js"></script>
+        <script src="js/farmacia.js"></script>
 
     </head>
     <body id="inici">
@@ -30,25 +33,19 @@
         </nav>
 
 
-        <div id="menu_ppal" class="sidebar-nav-fixed affix">
+        <div id="menu_ppal" class="sidebar-nav-fixed affix"></div>
 
-        </div>
-
-        
         <div id="cos_pagina" class="cos_principal">
             
-
-                
-		<button type="button" class="btn btn-default" id="boto_novanoticia" >Nova notícia</button>
-
+            <button type="button" class="btn btn-default" id="boto_novanoticia" >Nova notícia</button>
             <div class="noticia">
-                <h3> HEADER 1</h3>
+                <h3>Notícies</h3>
+                
                 <div class="seccio_cos">
 
                     Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 1 Noticia 2 
 
                 </div>
-
 
                 <table
                     class="taula_dades sortable" id="table1"
@@ -89,14 +86,14 @@
 
                     </tbody>		
                 </table>
-                
+
                 <br>
 
-				<div style="text-align: left; width: 10%; margin-left: auto; margin-right: 0px;">
-					<!-- Substituir el paràmetre de edita_noticia i elimina_noticia per la ID de la notícia en cada cas-->
-					<a href="#" id="boto_editanoticia_1" onclick="edita_noticia('noticia1')"> <img src="images/edit_button.png" alt=""  class="boto_med_image"></a>
-					<a href="#" id="boto_eliminanoticia_1" onclick="elimina_noticia('noticia1')"> <img src="images/delete_button.png" alt=""  class="boto_med_image"></a>
-				</div>
+                <div style="text-align: left; width: 10%; margin-left: auto; margin-right: 0px;">
+                    <!-- Substituir el paràmetre de edita_noticia i elimina_noticia per la ID de la notícia en cada cas-->
+                    <a href="#" id="boto_editanoticia_1" onclick="edita_noticia('noticia1')"> <img src="images/edit_button.png" alt=""  class="boto_med_image"></a>
+                    <a href="#" id="boto_eliminanoticia_1" onclick="elimina_noticia('noticia1')"> <img src="images/delete_button.png" alt=""  class="boto_med_image"></a>
+                </div>
 
 
             </div>

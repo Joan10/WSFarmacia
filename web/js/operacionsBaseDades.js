@@ -24,8 +24,8 @@ function doAltaSa() {
     soapDBWSFarmacia(text);
 }
 
-function doAltaNo() {
-    text = "noticias@@LTIM@@alta@@LTIM@@Soy una noticia nueva@@LTIM@@2014-12-02@@LTIM@@2014-12-19";
+function doAltaNo(Noticia) {
+    text = "noticias@@LTIM@@alta@@LTIM@@"+Noticia+"@@LTIM@@2014-12-02@@LTIM@@2014-12-19";
     soapDBWSFarmacia(text);
 }
 

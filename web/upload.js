@@ -84,7 +84,7 @@ function soapDBWSFarmacia(text) {
                 var a = resp.indexOf("<return>") + 8;
                 var b = resp.indexOf("</return>");
                 resp = resp.substring(a,b);
-                alert('la respuesta a la operación es\n'+resp);
+                alert(resp);
             }
         }
     }
