@@ -19,6 +19,9 @@ $( document ).ready(function() {
 		case "comandes":
 			pitja_boto("boto_comandes");
 		    break;
+		case "ajuda":
+			pitja_boto("boto_ajuda");
+		    break;
 		default:
 	} 
 

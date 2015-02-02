@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ca"><head>
+
+        <meta charset="UTF-8">
+        <title>Ajuda</title>
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/farmacia.css">
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/farmacia_menu.js"></script>
+        <script src="js/farmacia.js"></script>
+
+    </head>
+    <body id="ajuda">
+        <nav role="navigation" class="navbar-default header-top"> 
+            <div class="container-fluid">
+                <div class="navbar-header"> 
+                    <a href="https://dl-web.dropbox.com/get/uib/Interf%C3%ADcies/WSFarmacia/web/sortides.html?sjid=6687&_subject_uid=30230181&w=AACMLWHvhoYkcBwR7g3BEi5Ek9jipqlE-1mQyM6OoOCO_Q#" class="navbar-brand">Farmàcia</a>
+                    <a style="position: absolute; right: 5%;" class="navbar-brand">     
+                        <select id="menu_selector" class="selectpicker">
+                            <option id="load_admin_menu" onclick="loadXMLDoc_administrador()">Administrador magatzem</option>
+                            <option id="load_farm_menu" onclick="loadXMLDoc_farmaceutic()">Farmacèutic</option>
+                        </select>
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <div id="menu_ppal" class="sidebar-nav-fixed affix">
+
+        </div>
+
+        <div id="cos_pagina" class="cos_principal">
+            <div class="noticia">
+                <h3>Ajuda</h3>
+                 <div class="seccio_cos">
+                <h4>Navegació</h4>
+               
+                    Navegueu pels menús amb el panell lateral. El menú es compon dels següents components:
+
+                    <ul>
+                        <li>Inici: Consultar, inserir i modificar notícies.</li>
+                        <li>Medicaments: Consultar, inserir i modificar medicaments.</li>
+                        <li>Farmàcies: Consultar, inserir i modificar farmàcies.</li>
+                        <li>Entrades: Registrar i visualitzar les entrades de stoc al sistema.</li>
+                        <li>Sortides: Registrar i visualitzar les sortides de stoc a una farmàcia.</li>
+                        <li>Ajuda: Mostrar aquesta pàgina.</li>
+                        <li>Sortir: Tancar la sessió. No disponible en aquesta pràctica.</li>
+                    </ul>
+                    <h4>Rols d'usuari</h4>
+                    El menú desplegable de la part superior dreta de la pantalla permet visualitzar el disseny de la pàgina en funció del
+                    tipus d'usuari actiu. N'hi ha dos tipus:
+                    <ul>
+                        <li>Administrador magatzem: Té control sobre totes les farmàcies.</li>
+                        <li>Farmacèutic: Té control sobre la seva farmàcia. Pot registrar entrades de material i consultar medicaments.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </body></html>
