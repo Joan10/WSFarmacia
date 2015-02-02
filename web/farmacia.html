@@ -12,28 +12,29 @@
         <script src="js/sorttable.js"></script>
         <script src="js/farmacia_menu.js"></script>
         <script src="js/noticies.js"></script>
-        <script src="upload.js"></script>
+        <script src="js/upload.js"></script>
         <script src="js/operacionsBaseDades.js"></script>
         <script src="js/farmacia.js"></script>
 
     </head>
     <body id="inici">
-        <nav role="navigation" class="navbar-default header-top"> 
-            <div class="container-fluid">
-                <div class="navbar-header"> 
-                    <a href="#" class="navbar-brand">Farmàcia</a>
-                    <a style="position: absolute; right: 5%;" class="navbar-brand">     
-                        <select id="menu_selector" class="selectpicker">
-                            <option id="load_admin_menu" onclick="loadXMLDoc_administrador()" >Administrador magatzem</option>
-                            <option id="load_farm_menu" onclick="loadXMLDoc_farmaceutic()" >Farmacèutic</option>
-                        </select>
-                    </a>
-                </div>
-            </div>
-        </nav>
+	<nav role="navigation" class="navbar-default header-top"> 
+	<div class="container-fluid">
+		<div class="navbar-header"> 
+			<a href="https://dl-web.dropbox.com/get/uib/Interf%C3%ADcies/WSFarmacia/web/sortides.html?sjid=6687&_subject_uid=30230181&w=AACMLWHvhoYkcBwR7g3BEi5Ek9jipqlE-1mQyM6OoOCO_Q#" class="navbar-brand">Farmàcia</a>
+			<a style="position: absolute; right: 5%;" class="navbar-brand">     
+				<select id="menu_selector" class="selectpicker">
+					<option id="load_admin_menu" onclick="loadXMLDoc_administrador()">Administrador magatzem</option>
+					<option id="load_farm_menu" onclick="loadXMLDoc_farmaceutic()">Farmacèutic</option>
+				</select>
+			</a>
+		</div>
+	</div>
+	</nav>
 
+	<div id="menu_ppal" class="sidebar-nav-fixed affix">
 
-        <div id="menu_ppal" class="sidebar-nav-fixed affix"></div>
+	</div>
 
         <div id="cos_pagina" class="cos_principal">
             

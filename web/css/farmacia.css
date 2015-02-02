@@ -11,7 +11,13 @@ a:visited {
 	border-bottom: 1px solid #919191;
 	background: #ECECEC;
 	border-radius: 0px;
-	position: relative;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 999;
+        width: 100%;
+        height:6%;
+  
 	
 }
 .selectpicker {
@@ -25,6 +31,8 @@ a:visited {
 	padding-top: 1%;
 	background: #E0E0E0;
 	border-right: 1px solid #919191;
+        top: 6%;
+         z-index: 999;
 	
 }
 
@@ -100,9 +108,9 @@ a:visited {
 
 .cos_principal {
 	width:85%;
-	position: relative;
+	position: absolute;
 	left: 12%;
-	top: 25px;
+	top: 10%;
 }
 
 /*.btn {

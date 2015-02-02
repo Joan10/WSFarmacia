@@ -7,108 +7,119 @@
 <button type="button" id="boto_novaentrada_cancela" class="btn btn-default">Cancel·la</button>
 
 <script>
-	//Acció en pitjar els botons
-	$('#boto_novaentrada_accepta').on('click', function(event) {
-		
-                
-            var checked_ids = [];
-            nodelist=$("#plugins4").jstree('get_selected')[0];
-            console.log(nodelist);
+    //Acció en pitjar els botons
+    $('#boto_novaentrada_accepta').on('click', function (event) {
 
-            
-	});
 
-	$('#boto_novaentrada_cancela').on('click', function(event) {
-		$("#cos_pagina").load("inici.html"); 
-		
-	});
+        var checked_ids = [];
+        nodelist = $("#plugins4").jstree('get_selected')[0];
+        console.log(nodelist);
+        
+        window.location = "entrades.html"
+
+
+    });
+
+    $('#boto_novaentrada_cancela').on('click', function (event) {
+        window.location = "entrades.html"
+
+    });
 
 
 </script>
 
 <div class="formulari">
-<h3> Nova entrada</h3>
+    <h3> Nova entrada</h3>
 
 
-	<div class="seccio_cos ">
+    <div class="seccio_cos ">
 
-		<form class="form-horizontal col-lg-6 col-lg-offset-0">
+        <form class="form-horizontal">
 
-
-						<input type="text" id="plugins4_q" value="" class="input" style="margin:0em auto 1em auto; display:block; padding:4px; border-radius:4px; border:1px solid silver;" />
-						<div id="plugins4" class="demo plugin-demo">
-							<ul>
-								<li data-jstree='{"opened":true}'>Categories
-									<ul>
-										<li>Categoria 1
-											<ul>
-												<li class="fulla" id="hola" data-jstree='{"icon":"images/tree_file.png"}' >Medicament 1</li>
-												<li class="fulla" data-jstree='{"icon":"images/tree_file.png"}' >Medicament 2</li>
-											</ul>
-										</li>
-										<li>Categoria 2</li>
-
-										<li>Categoria 3</li>
+            <div class="form-group">
+                <label for="input_nom" class="col-sm-2 control-label">Medicament</label>
+                <div class="col-sm-10">
 
 
-									</ul>
-								</li>
-							</ul>
-						</div>
-						<script>
-						$(function () {
-							$("#plugins4").jstree({
-								"plugins" : [ "search" ],
-								"types" : {
-									"file" : {
-									  "icon" : "glyphicon ",
-									  "valid_children" : []
-									}
-								}
-							});
+            <input type="text" id="plugins4_q" value="" placeholder="Cerca" class="input" style=" display:block; padding:4px; border-radius:4px; border:1px solid silver;" />
+            
+            <div id="plugins4" class="demo plugin-demo">
+                <ul>
+                    <li data-jstree='{"opened":true}'>Categories
+                        <ul>
+                            <li>Categoria 1
+                                <ul>
+                                    <li class="fulla" id="hola" data-jstree='{"icon":"images/tree_file.png"}' >Medicament 1</li>
+                                    <li class="fulla" id="hola2" data-jstree='{"icon":"images/tree_file.png"}' >Medicament 2</li>
+                                </ul>
+                            </li>
+                            <li>Categoria 2</li>
+
+                            <li>Categoria 3</li>
 
 
-							var to = false;
-							$('#plugins4_q').keyup(function () {
-								if(to) { clearTimeout(to); }
-								to = setTimeout(function () {
-									var v = $('#plugins4_q').val();
-									$('#plugins4').jstree(true).search(v);
-								}, 250);
-							});
-						});
-						</script>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <script>
+                $(function () {
+                    $("#plugins4").jstree({
+                        "core": {
+                            "multiple": false,
+                            "animation": 0
+                        },
+                        "types": {
+                            "file": {
+                                "icon": "glyphicon ",
+                                "valid_children": []
+                            }
+                        },
+                        "checkbox": {
+                            "keep_selected_style": true
+                        },
+                        "plugins": ["search", "wholerow", "checkbox"]
+                    }
+                    );
+                    var to = false;
+                    $('#plugins4_q').keyup(function () {
+                        if (to) {
+                            clearTimeout(to);
+                        }
+                        to = setTimeout(function () {
+                            var v = $('#plugins4_q').val();
+                            $('#plugins4').jstree(true).search(v);
+                        }, 250);
+                    });
+                });
+            </script>
+                </div>
+                </div>
+            <br>
+            <br>
+
+            <div class="form-group">
+                <label for="input_nom" class="col-sm-2 control-label">Quantitat</label>
+                <div class="col-sm-10">
+                    <input class="form-control" type="number" name="quantity" min="1" value="1">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="input_descripcio" class="col-sm-2 control-label">Comentari</label>
+                <div class="col-sm-10">
+                    <textarea class="form-control" rows="10" placeholder="Comentari sobre l'entrada"></textarea>
+                </div>
+            </div>
 
 
-			<div class="form-group">
-				<label for="input_nom" class="col-sm-2 control-label">Medicament</label>
-				<div class="col-sm-10">
-					<input type="text" class="form-control" id="inputEmail3" placeholder="">
-				</div>
-			</div>
 
-			<div class="form-group">
-				<label for="input_descripcio" class="col-sm-2 control-label">Cos</label>
-				<div class="col-sm-10">
-					<textarea class="form-control" rows="10" placeholder="Cos de la notícia"></textarea>
-				</div>
-			</div>
+
+        </form>
 
 
 
-			<div class="form-group">
-				<label for="input_descripcio" class="col-sm-2 control-label">Imatge</label>
-				<div class="col-sm-10">
-					<input type="file" id="files" name="files[]"/><output id="list"></output>
-				</div>
-			</div>
-
-
-		</form>
-
-
-
-</div>
+    </div>
 
 
 
