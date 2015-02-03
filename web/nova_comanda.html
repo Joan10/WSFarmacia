@@ -3,13 +3,13 @@
 
 <script src="jstree/dist/jstree.js"></script>
 <script src="js/arbre_medicaments.js"></script>
-
-<button type="button" id="boto_novasortida_accepta" class="btn btn-default">Accepta</button>
-<button type="button" id="boto_novasortida_cancela" class="btn btn-default">Cancel·la</button>
+<button type="button" id="boto_novacomanda_accepta" class="btn btn-default">Accepta</button>
+<button type="button" id="boto_novacomanda_cancela" class="btn btn-default">Cancel·la</button>
 
 <script>
     //Acció en pitjar els botons
-    $('#boto_novasortida_accepta').on('click', function (event) {
+    $('#boto_novacomanda_accepta').on('click', function (event) {
+
         alert("!!");
         var checked_ids = [];
         nodelist = $("#arbre_medicaments").jstree('get_selected')[0];
@@ -25,8 +25,8 @@
 
     });
 
-    $('#boto_novasortida_cancela').on('click', function (event) {
-        window.location = "sortides.html";
+    $('#boto_novacomanda_cancela').on('click', function (event) {
+        window.location = "comandes.html"
 
     });
 
@@ -34,7 +34,7 @@
 </script>
 
 <div class="formulari">
-    <h3> Nova sortida</h3>
+    <h3> Nova comanda</h3>
 
 
     <div class="seccio_cos ">
@@ -67,7 +67,6 @@
                             </li>
                         </ul>
                     </div>
-
                 </div>
             </div>
             <br>
