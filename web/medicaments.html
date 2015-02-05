@@ -48,6 +48,11 @@
 			$('#boto_noumedicament').on('click', function(event) {
 				$("#cos_pagina").load("nou_medicament.html"); 
 			});
+                        
+                        function elimina_medicament(id_medicament)
+                        {	
+                                alert (id_medicament);
+                        }
 		</script>
 
 
@@ -63,9 +68,11 @@
 
 				<thead> 
 					<tr> 
+                                                
 						<th>Last sName</th> 
 						<th>First Name</th> 
 						<th>Email</th> 
+                                                <th class="sorttable_nosort"> </th>
 					</tr> 
 				</thead> 
 				<tbody>
@@ -73,6 +80,7 @@
 						<td>raquel</td>
 						<td>C1</td>
 						<td>2</td>
+                                                <td width="20"><a href="#" onclick="elimina_medicament('hola');">  <img src="images/delete_button_sm.png" alt="Elimina"></a></td> 
 
 					</tr>
 					<tr>
