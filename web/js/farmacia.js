@@ -1,8 +1,8 @@
 
 
 $(document).ready(function () {
-    llistatNoticies = doListaNo();
-    alert(llistatNoticies);
+    //llistatNoticies = doListaNo();
+    //alert(llistatNoticies);
     /*arrayParametres = [];
     //alert('prova');
 

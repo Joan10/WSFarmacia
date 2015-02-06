@@ -1,0 +1,82 @@
+
+<script type="text/javascript" src="js/upload.js"></script>
+<script type="text/javascript" src="js/operacionsBaseDades.js"></script>
+<script type="text/javascript" src="js/noticies.js"></script>
+
+
+
+
+<div class="formulari">
+
+    <form id="formulariNouMedicament">
+        <button type="submit" id="boto_nouMedicament_accepta" class="btn btn-default">Accepta</button>
+        <button type="button" id="boto_nouMedicamnet_cancela" class="btn btn-default">Cancel·la</button>
+        <h3> Nou Medicament</h3>
+
+        <div class="seccio_cos ">
+
+            <div class="form-horizontal col-lg-6 col-lg-offset-0" >
+
+                <div class="form-group">
+                    <label for="Documento" class="col-sm-2 control-label">Medicament</label>
+                    <div class="col-sm-10">
+                    <select  type="text" class="form-control" name="Documento" id="id_Documento" >
+                        <option value="Adaptogen">Adaptogen</optContratoion>
+                        <option value="Analgèsic">Analgèsic</option>
+                        <option value="Anapilèptic">Anapilèptic</optionContrato>
+                        <option value="Antiinflamatori">Antiinflamatori</option>
+                        <option value="Espectorant">Espectorant</option>
+                        <option value="Esteroideu">Esteroideu</option>
+                        <option value="" selected="selected"> -Tria el tipus de medicament- </option>
+                    </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="input_descripcio" class="col-sm-2 control-label">Descripció</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" name="cos" placeholder="Breu descripció del medicament...">
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="input_descripcio" class="col-sm-2 control-label">Imatge</label>
+                    <div class="col-sm-10">
+                        <input type="file" id="files" name="files[]"/><output id="list"></output>
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+                    <label for="input_descripcio" class="col-sm-2 control-label">Nom</label>
+                    <div class="col-sm-10">
+                        <input class="form-control"  name="cos" placeholder="Introdueix el nom del medicament">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="input_descripcio" class="col-sm-2 control-label">Codi</label>
+                    <div class="col-sm-10">
+                        <input class="form-control"  name="cos" placeholder="Introdueix el codi del medicament">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="input_descripcio" class="col-sm-2 control-label">Stock</label>
+                    <div class="col-sm-10">
+                        <input class="form-control"  name="cos" placeholder="Introdueix la quantitat d'unitats">
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
