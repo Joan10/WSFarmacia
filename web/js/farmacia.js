@@ -1,8 +1,11 @@
 
 
 $(document).ready(function () {
-    //llistatNoticies = doListaNo();
-    //alert(llistatNoticies);
+   
+    text = "noticias@@LTIM@@lista";
+    soapDBWSFarmacia(text, "noti1");
+   
+    
     /*arrayParametres = [];
     //alert('prova');
 
