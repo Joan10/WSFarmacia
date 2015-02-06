@@ -98,6 +98,21 @@ function soapDBWSFarmacia(text) {
 //*******************************************
 //***** Cridada a la BBDD que guarda el resultat en un element del document.
 //*******************************************
+/*
+ * La solució proposada consisteix en passar al thread que farà la connexió
+ * l'identificador de l'element on guardarem el resultat de la resposta.
+ * És a dir, serà el thread que fa la connexió el que pintarà les taules i els elements,
+ * no el fil principal. Potser necessari passar més paràmetres per saber si pintar
+ * una taula, una llista desplegable etc.
+ * 
+ * L'altre opció passa per fer una espera activa al thread principal. Aquesta opció és una porqueria
+ * i bloquejarà el navegador si la connexió és lenta.
+ * 
+ * Una altra opció, la que funciona ara mateix, és la de passar per paràmetre a soapDBWSFarmacia una funció 
+ * que rebria el paràmetre resp....
+ *  
+ * Tria la que vulguis. No sé que dirà el professor.
+ */
 function soapDBWSFarmacia(text,elementID) {
     //text: Paràmetre de consulta SOPAR
     //elementID: Element del document on escriurem la resposta
@@ -123,6 +138,40 @@ function soapDBWSFarmacia(text,elementID) {
                 resp = resp.substring(a,b);
                 
                 document.getElementById(elid).innerHTML=resp;
+            //    $("#"+elid).setAttribute("value", resp);
+            }
+        }
+    }
+    xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+    xmlhttp.send(sr);
+    
+}
+
+//Aquesta rep una funció per paràmetre
+function soapDBWSFarmacia_function(text,fn_resp) {
+    //text: Paràmetre de consulta SOPAR
+    //elementID: Element del document on escriurem la resposta
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('POST', 'http://localhost:8080/WSFarmacia/WSFarmacias', true);
+    // Feim la crida SOAP
+    var sr =
+            '<?xml version="1.0" encoding="UTF-8"?><S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">' +
+            '<SOAP-ENV:Header/>' +
+            '<S:Body>' +
+            '<ns2:db xmlns:ns2="http://WS.ltimwsfarmacia/">' +
+            '<text>' + text + '</text>' +
+            '</ns2:db>' +
+            '</S:Body>' +
+            '</S:Envelope>';
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4) {
+            if (xmlhttp.status == 200) {
+                var resp = xmlhttp.responseText;
+                var a = resp.indexOf("<return>") + 8;
+                var b = resp.indexOf("</return>");
+                resp = resp.substring(a,b);
+                
+                fn_resp(resp);
             //    $("#"+elid).setAttribute("value", resp);
             }
         }
