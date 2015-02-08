@@ -30,6 +30,6 @@ $(document).ready(function () {
 
 
     $('#boto_novanoticia_cancela').on('click', function (event) {
-        $("#cos_pagina").load("nova_noticia.html"); 
+        $("#cos_pagina").load("farmacia.html"); 
     });
 });

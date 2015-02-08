@@ -9,9 +9,13 @@ function doAltaCa() {
 }
 
 function doAltaMe() {
+    alert('doAltaMe()');
     text = "medicamentos@@LTIM@@alta@@LTIM@@2@@LTIM@@descripción@@LTIM@@nombre.png" +
-            "@@LTIM@@nombre@@LTIM@@00000X@@LTIM@@12";
+                        "@@LTIM@@nombre@@LTIM@@00000X@@LTIM@@12";
+    /*text = "noticias@@LTIM@@alta@@LTIM@@Soy una noticia nueva@@LTIM@@2014-12-02@@LTIM@@2014-12-19";*/
+    alert(text);
     soapDBWSFarmacia(text);
+    alert('ok');
 }
 
 function doAltaEn() {
