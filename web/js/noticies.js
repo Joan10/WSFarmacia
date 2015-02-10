@@ -50,29 +50,31 @@ $(document).ready(function () {
     
     
    var text;
-   
-    function pinta_noticies(resp){     
-        var n0 = "<div class='noticia'><div class='seccio_cos'><h4>";
-        var n1 = "</h4>";
-        var n2 = "</div><br><div style='text-align: left; width: 10%; margin-left: auto; margin-right: 0px;'><a href='#' id='boto_editanoticia_";
-        var n3 = "\" onclick=\"edita_noticia\('noticia";
-        var n4 = "\")\"> <img src='images/edit_button.png' alt='Edita notícia'  class='boto_med_image'></a> <a href='#' id='boto_eliminanoticia_";
-        var n5 = " onclick=\"elimina_noticia('noticia";
-        var n6 = "')\"> <img src='images/delete_button.png' alt='Esborra notícia'  class='boto_med_image'></a> </div> </div>";
+   cos_noticia =""; //Es passarà a edita.
+   var noticies;
+    function pinta_noticies(resp){    
         
+        var template = "<div class=\"noticia\"><div class=\"seccio_cos\"><h4>titol_noticia</h4>cos_noticia</div><br><div style=\"text-align: left; width: 10%; margin-left: auto; margin-right: 0px;\"><!-- Substituir el paràmetre de edita_noticia i elimina_noticia per la ID de la notícia en cada cas--><a href=\"#\" id=\"boto_editanoticia_idnoticia\" onclick=\"edita_noticia(\'idnoticia\')\"> <img src=\"images/edit_button.png\" alt=\"Edita notícia\"  class=\"boto_med_image\"></a><a href=\"#\" id=\"boto_eliminanoticia_idnoticia\" onclick=\"elimina_noticia(\'idnoticia\')\"> <img src=\"images/delete_button.png\" alt=\"Esborra notícia\"  class=\"boto_med_image\"></a></div></div>";
         var noticies = resp.split("@@LTIMNL@@"); 
         var components;
         var noticia = "";
-        
+
+
+
         for (i = 0; i < noticies.length; i++) {
             components = noticies[i].split("@@LTIM@@");
             console.log(noticies[i]);
             noticia = "";
-            noticia=n0+components[0]+": "+components[2]+" - "+components[3]+n1+components[1]+n2+components[0]+n3+components[0]+n4+components[0]+n5+components[0]+n6;
+            //noticia=n0+components[0]+": "+components[2]+" - "+components[3]+n1+components[1]+n2+components[0]+n3+components[0]+n4+components[0]+n5+components[0]+n6;
+            noticia = template.replace("titol_noticia",components[0]+": "+components[2]+" - "+components[3]);
+            noticia = noticia.replace("cos_noticia",components[1]);
+            noticia = noticia.replace(/idnoticia/g,components[0]);
+            
             for (j=0; j < components.length; j++){
                 console.log(components[j]);  
+                noticies[components[0]]
             }
-            document.getElementById("layout_noticies").innerHTML+=noticia
+            document.getElementById("layout_noticies").innerHTML+=noticia;
             
             
             
@@ -94,6 +96,7 @@ $(document).ready(function () {
 function edita_noticia(id_noticia)
 {
     id_edita = id_noticia;
+    cos_edita = $("#id_edita").attr('value');
     $("#cos_pagina").load("edita_noticia.html");
 }
 

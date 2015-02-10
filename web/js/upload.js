@@ -95,6 +95,7 @@ function soapDBWSFarmacia(text) {
 
 
 
+
 //*******************************************
 //***** Cridada a la BBDD que guarda el resultat en un element del document.
 //*******************************************
@@ -113,7 +114,7 @@ function soapDBWSFarmacia(text) {
  *  
  * Tria la que vulguis. No sé que dirà el professor.
  */
-function soapDBWSFarmacia(text,elementID) {
+function soapDBWSFarmacia_id(text,elementID) {
     //text: Paràmetre de consulta SOPAR
     //elementID: Element del document on escriurem la resposta
     var elid = elementID;
