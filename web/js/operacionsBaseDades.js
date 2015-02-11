@@ -1,5 +1,5 @@
-function doAltaFa(farmacia,carrer) {    
-    text = "farmacias@@LTIM@@alta@@LTIM@@"+farmacia+"@@LTIM@@"+carrer+"@@LTIM@@0";
+function doAltaFa(farmacia,pass) {    
+    text = "farmacias@@LTIM@@alta@@LTIM@@"+farmacia+"@@LTIM@@"+pass+"@@LTIM@@0";
     soapDBWSFarmacia(text);
 }
 

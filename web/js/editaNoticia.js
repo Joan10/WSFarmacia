@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    var idnoticia;
+    var text,idnoticia;
     //Introduïm les dades de la notícia passada
     text = "noticias@@LTIM@@consulta@@LTIM@@" + id_edita;
 //    soapDBWSFarmacia(text, "noti1", pinta_noticies());
@@ -18,7 +18,7 @@ $(document).ready(function () {
                 campCos = $form.find("textarea[name='cos']").val();
         doModificacionNo(idnoticia, campCos);
         //Recarregam la pàgina anterior dinàmicament
-        $("#cos_pagina").load("edita_noticia.html");
+        $("#cos_pagina").replace("farmacia.html");
         return false;
     }
     );
