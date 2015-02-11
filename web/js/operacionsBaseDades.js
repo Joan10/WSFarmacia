@@ -10,7 +10,7 @@ function doAltaCa() {
 
 function doAltaMe() {
    // alert('doAltaMe()');
-    text = "medicamentos@@LTIM@@alta@@LTIM@1@@LTIM@@descripcion@@LTIM@@jola.png" +
+    text = "medicamentos@@LTIM@@alta@@LTIM@@1@@LTIM@@descripcion@@LTIM@@jola.png" +
                         "@@LTIM@@fgdfgdfgsdfg@@LTIM@@00000Y@@LTIM@@12";
     /*text = "noticias@@LTIM@@alta@@LTIM@@Soy una noticia nueva@@LTIM@@2014-12-02@@LTIM@@2014-12-19";*/
  //   alert(text);
@@ -19,7 +19,7 @@ function doAltaMe() {
 }
 
 function doAltaEn() {
-    text = "entradas@@LTIM@@alta@@LTIM@@1@@LTIM@@5@@LTIM@@2014-11-26 17:48:56";
+    text = "entradas@@LTIM@@alta@@LTIM@@66@@LTIM@@5@@LTIM@@2014-11-26 17:48:56";
     soapDBWSFarmacia(text);
 }
 

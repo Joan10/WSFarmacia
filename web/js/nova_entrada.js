@@ -3,30 +3,30 @@ $(document).ready(function () {
 
     
     
-    $("#formulariNovaSortida").submit(function () {
+    $("#formulariNovaEntrada").submit(function () {
         nodelist = $("#arbre_medicaments").jstree('get_selected')[0];
         if ($("#"+nodelist).hasClass("jstree-leaf")) {
 
             var $form = $(this),
                     campQuantitat = $form.find("input[name='quantity']").val(),
-                    campDataSortida = $form.find("input[name='dataSortida']").val(),
+                    campDataEntrada = $form.find("input[name='dataEntrada']").val(),
                     campFarmacia = $form.find("select[name='lab_farms']").val();
 
             node = nodelist.split("_")[1];
             campFarm = campFarmacia.split("_")[1];
             console.log(" Q: "+campQuantitat + " farm: "+ campFarm + " node: "+ node);     
             //doAltaNo(campCos,campDataInici,campDataFi);
-            text = "salidas@@LTIM@@alta@@LTIM@@"+campFarm+"@@LTIM@@"+node+"@@LTIM@@"+campQuantitat+"@@LTIM@@"+campDataSortida;
+            text = "entradas@@LTIM@@alta@@LTIM@@"+node+"@@LTIM@@"+campQuantitat+"@@LTIM@@"+campDataEntrada;
             
             soapDBWSFarmacia(text);
-            window.location.replace("sortides.html");
+            window.location.replace("entrades.html");
             return false;
         }
     }
     );
     
-    $('#boto_novasortida_cancela').on('click', function (event) {
-        window.location = "sortides.html";
+    $('#boto_novaentrada_cancela').on('click', function (event) {
+        window.location = "entrades.html";
 
     });
 
@@ -72,35 +72,13 @@ $(document).ready(function () {
             soapDBWSFarmacia_function_param(textmed, trad_medicament, [ id, nom ]);
         }
     }
-    
-    
-    function pinta_farmacies(resp){
-        var farms = resp.split("@@LTIMNL@@");
-        template = "<option id=\"optfarmid_laboptfarmid\" value=\"optfarmnom_laboptfarmid\">laboptfarmnom</option>"
-        resultat="";
-        
-        for (i=0; i<farms.length; i++){
-            var farm = farms[i].split("@@LTIM@@");
-            console.log(farm[0]);
-            console.log(farm[1]);
-            buff="";
-            buff=template.replace(/laboptfarmid/g, farm[0]);
-            buff=buff.replace(/laboptfarmnom/g, farm[1]);
-            resultat+=buff;
-            
-        }
-        
-        $("#lab_farms").html(resultat)
-        
-    }
+ 
     
     
     text = "categorias@@LTIM@@lista";
     soapDBWSFarmacia_function(text, pinta_categories);
     
     
-    text = "farmacias@@LTIM@@lista";
-    soapDBWSFarmacia_function(text, pinta_farmacies);
         
 });
 

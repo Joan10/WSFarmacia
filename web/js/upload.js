@@ -79,6 +79,7 @@ function soapDBWSFarmacia(text) {
             '</S:Envelope>';
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4) {
+            alert(xmlhttp.status);
             if (xmlhttp.status == 200) {
                 var resp = xmlhttp.responseText;
                 var a = resp.indexOf("<return>") + 8;
