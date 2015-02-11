@@ -144,3 +144,4 @@ function doFechaHora() {
     text = "fechahora";
     soapDBWSFarmacia(text);
 }
+
