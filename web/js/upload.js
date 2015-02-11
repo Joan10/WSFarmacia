@@ -181,3 +181,39 @@ function soapDBWSFarmacia_function(text,fn_resp) {
     xmlhttp.send(sr);
     
 }
+
+
+//Aquesta rep una funció per paràmetre i li passa un paràmetre
+function soapDBWSFarmacia_function_param(text,fn_resp,param) {
+    //text: Paràmetre de consulta SOAP
+    //fn_resp: Funció que executa quan rep la resposta
+    //param: paràmetre extra que es passarà a la funció
+    var xmlhttp = new XMLHttpRequest();
+    
+    xmlhttp.open('POST', 'http://localhost:8080/WSFarmacia/WSFarmacias', true);
+    // Feim la crida SOAP
+    var sr =
+            '<?xml version="1.0" encoding="UTF-8"?><S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">' +
+            '<SOAP-ENV:Header/>' +
+            '<S:Body>' +
+            '<ns2:db xmlns:ns2="http://WS.ltimwsfarmacia/">' +
+            '<text>' + text + '</text>' +
+            '</ns2:db>' +
+            '</S:Body>' +
+            '</S:Envelope>';
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4) {
+            if (xmlhttp.status == 200) {
+                var resp = xmlhttp.responseText;
+                var a = resp.indexOf("<return>") + 8;
+                var b = resp.indexOf("</return>");
+                resp = resp.substring(a,b);
+                fn_resp(resp,param);
+            //    $("#"+elid).setAttribute("value", resp);
+            }
+        }
+    }
+    xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+    xmlhttp.send(sr);
+    
+}
