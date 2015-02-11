@@ -8,12 +8,9 @@ function doAltaCa() {
     soapDBWSFarmacia(text);
 }
 
-function doAltaMe() {
-   // alert('doAltaMe()');
-    text = "medicamentos@@LTIM@@alta@@LTIM@@1@@LTIM@@descripcion@@LTIM@@jola.png" +
-                        "@@LTIM@@fgdfgdfgsdfg@@LTIM@@00000Y@@LTIM@@12";
-    /*text = "noticias@@LTIM@@alta@@LTIM@@Soy una noticia nueva@@LTIM@@2014-12-02@@LTIM@@2014-12-19";*/
- //   alert(text);
+function doAltaMe(codi,nom,categoria,descripcio,quantitat) {
+    text = "medicamentos@@LTIM@@alta@@LTIM@@"+categoria+"@@LTIM@@"+descripcio+"@@LTIM@@jola.png" +
+                        "@@LTIM@@"+nom+"@@LTIM@@"+codi+"@@LTIM@@"+quantitat;
     soapDBWSFarmacia(text);
  //   alert('ok');
 }
