@@ -28,8 +28,8 @@ function doAltaSa() {
     soapDBWSFarmacia(text);
 }
 
-function doAltaNo(Noticia) {
-    text = "noticias@@LTIM@@alta@@LTIM@@"+Noticia+"@@LTIM@@2014-12-02@@LTIM@@2014-12-19";
+function doAltaNo(Noticia,dataInici,dataFi) {
+    text = "noticias@@LTIM@@alta@@LTIM@@"+Noticia+"@@LTIM@@"+dataInici+"@@LTIM@@"+dataFi;
     soapDBWSFarmacia(text);
 }
 
@@ -129,9 +129,9 @@ function doModificacionMe() {
     soapDBWSFarmacia(text);
 }
 
-function doModificacionNo() {
-    text = "noticias@@LTIM@@modificacion@@LTIM@@1@@LTIM@@Soy una noticia que va del 16 al 25t"
-            + "@@LTIM@@2014-11-16 00:00:00@@LTIM@@2014-11-25 00:00:00";
+function doModificacionNo(id,cos) {
+    text = "noticias@@LTIM@@modificacion@@LTIM@@"+id+"@@LTIM@@"+cos+
+            "@@LTIM@@2014-11-16 00:00:00@@LTIM@@2014-11-25 00:00:00";
     soapDBWSFarmacia(text);
 }
 

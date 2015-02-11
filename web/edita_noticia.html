@@ -1,37 +1,13 @@
 
 <script type="text/javascript" src="js/upload.js"></script>
 <script type="text/javascript" src="js/operacionsBaseDades.js"></script>
+<script type="text/javascript" src="js/editaNoticia.js"></script>
 
-<script>
-$(document).ready(function () {
-
-	//Introduïm les dades de la notícia passada
-	
-
-
-        text = "noticias@@LTIM@@consulta@@LTIM@@"+id_edita;
-//    soapDBWSFarmacia(text, "noti1", pinta_noticies());
-        
-        function pinta_cos(resp){
-            
-            cos = resp.split("@@LTIM@@");
-            
-            $("#editaCosNoticia").html(cos[1]);
-            
-        }
-        soapDBWSFarmacia_function(text,pinta_cos);
-        
-	//$("#editaTitolNoticia").attr('value', id_edita)
-	
-        
-
-});
-</script>
 
 <div class="formulari">
 
     <form id="formulariEditaNoticia">
-        
+
         <!-- Pel disseny que he fet, és preferible que els botons estiguin a dalt -->
         <button type="submit" id="boto_editanoticia_accepta" class="btn btn-default">Accepta</button>
         <button type="button" id="boto_editanoticia_cancela" class="btn btn-default">Cancel·la</button>
@@ -47,8 +23,8 @@ $(document).ready(function () {
 
             <div class="form-horizontal col-lg-6 col-lg-offset-0" >
                 <div class="form-group">
-                    <label for="input_nom" class="col-sm-2 control-label">Títol</label>
-                    <div class="col-sm-10">
+                    <label for="input_nom" class="col-sm-2 control-label">Id. de la Notícia</label>
+                    <div class="col-sm-10" id="texto">
                         <input type="text" class="form-control" name="titol" id="editaTitolNoticia" placeholder="Introdueix el títol de la notícia...">
                     </div>
                 </div>
