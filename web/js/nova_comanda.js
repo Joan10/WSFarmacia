@@ -1,46 +1,50 @@
 
 $(document).ready(function () {
-
+    //Guardam les quantitats màximes de cada medicament aquí per controlar la sortida
+    var quant_maxim = {};
     
     
-    $("#formulariNovaEntrada").submit(function () {
+    $("#formulariNovaComanda").submit(function () {
         nodelist = $("#arbre_medicaments").jstree('get_selected')[0];
         if ($("#"+nodelist).hasClass("jstree-leaf")) {
 
             var $form = $(this),
                     campQuantitat = $form.find("input[name='quantity']").val(),
-                    campDataEntrada = $form.find("input[name='dataEntrada']").val(),
+                    campDataComanda = $form.find("input[name='dataComanda']").val(),
 
             node = nodelist.split("_")[1];  
 
+            if (parseInt(campQuantitat) <= quant_maxim[node]){
+                function confirma(resp0){
+                    //Aquesta funció s'executarà quan s'hagi realitzat correctament la funció d'afegir la sortida.
+                    //Confirmarà i restarà al magatzem.
+                    if (resp0 == "OK"){
+                        //Restam al magatzem
+                        var count = -1*parseInt(campQuantitat);
+                        text = "medicamentos@@LTIM@@sumaenalmacen@@LTIM@@"+$("#"+nodelist).attr("name")+"@@LTIM@@"+count.toString();
 
-            function confirma(resp0){
-                //Aquesta funció s'executarà quan s'hagi realitzat correctament la funció d'afegir la sortida.
-                //Confirmarà i restarà al magatzem.
-                if (resp0 == "OK"){
-                    //Sumam al magatzem
-                    text = "medicamentos@@LTIM@@sumaenalmacen@@LTIM@@"+$("#"+nodelist).attr("name")+"@@LTIM@@"+campQuantitat;
-                    soapDBWSFarmacia_noalert(text);
-
-                    alert("Operació realitzada correctament");
-                    $("#cos_pagina").load("nova_sortida.html"); 
-                }else{
-                    alert("Hi ha hagut algun problema amb la operació.\nComprova que els camps siguin correctes.");
+                        alert("Operació realitzada correctament");
+                        $("#cos_pagina").load("nova_comanda.html"); 
+                    }else{
+                        alert("Hi ha hagut algun problema amb la operació.\nComprova que els camps siguin correctes.");
+                    }
                 }
-            }
-                     
-            //Afegim l'entrada
-            text = "entradas@@LTIM@@alta@@LTIM@@"+node+"@@LTIM@@"+campQuantitat+"@@LTIM@@"+campDataEntrada;
-            soapDBWSFarmacia_function(text, confirma);
-            
-            return false;
+                campFarm = 
+                //Afegim l'comanda
+                text = "salidas@@LTIM@@alta@@LTIM@@"+campFarm+"@@LTIM@@"+node+"@@LTIM@@"+campQuantitat+"@@LTIM@@"+campDataSortida;
+                soapDBWSFarmacia_function(text,confirma);
 
+                return false;
+            }else{
+                alert("Atenció: No podeu treure més elements dels existents!");
+                return false;
+            }
         }
         return false;
     }
     );
     
-    $('#boto_novaentrada_cancela').on('click', function (event) {
+    $('#boto_novacomanda_cancela').on('click', function (event) {
         window.location = "entrades.html";
 
     });
@@ -71,7 +75,7 @@ $(document).ready(function () {
                     resultat=resultat+template_med.replace("labmediid",medicament[0]);
                     resultat=resultat.replace(/labnom_med/g,medicament[4]);
                     resultat=resultat.replace(/labquant_med/g,medicament[6]);
-
+                    quant_maxim[medicament[0]] = medicament[6];
                 }
             }
             resultat+=templatef_cat;

@@ -10,14 +10,23 @@ $(document).ready(function () {
         var sortida="";
         
         function trad_farmacia(resp0, id){
+            /* Aquesta funció s'encarrega de pintar les farmàcies
+             * amb id igual al passat dins del vector id.
+             * 
+             * En aquest cas resp0 serà la resposta i id serà un array
+             * amb dos components: id[0] és l'id de l'element de la taula on es
+             * guardarà el resultat i id[1] és l'id de la farmàcia.
+             * 
+             * Aquesta funció existeix perquè al ws no li podem
+             * demanar la traducció de la id d'una farmàcia al seu nom.
+            */
             var farms = resp0.split("@@LTIMNL@@");
             var el_taula = id[0];
             var id_farm = id[1];
             for (i=0; i<farms.length; i++){
+                //Recorrem totes les farmàcies
                 components0 = farms[i].split("@@LTIM@@");
                 if (id_farm == components0[0]) {
-                  //  console.log("#farmacia_"+el_taula);
-                  //  console.log(components0[1]);
                     $("#farmacia_"+el_taula).html(components0[1]);
                     return;
                 }
@@ -25,14 +34,24 @@ $(document).ready(function () {
         }
 
         function trad_medicament(resp0, id){
-            var farms = resp0.split("@@LTIMNL@@");
+            /* Aquesta funció s'encarrega de pintar els medicaments
+             * amb id igual al passat dins del vector id.
+             * 
+             * En aquest cas resp0 serà la resposta i id serà un array
+             * amb dos components: id[0] és l'id de l'element de la taula on es
+             * guardarà el resultat i id[1] és l'id del medicament.
+             * 
+             * Aquesta funció existeix perquè no tenim manera de treure
+             * el nom d'un medicament donada la seva ID sense modificar el ws.
+            */
+            var medi = resp0.split("@@LTIMNL@@");
             var el_taula = id[0];
             var id_medi = id[1];
-            for (i=0; i<farms.length; i++){
-                components0 = farms[i].split("@@LTIM@@");
+            for (i=0; i<medi.length; i++){
+                //Recorrem tots els medicaments fins que en trobem un amb
+                //el mateix identificador que hem passat. Llavors el pintam
+                components0 = medi[i].split("@@LTIM@@");
                 if (id_medi == components0[0]) {
-                  //  console.log("#medi_"+el_taula);
-                  //  console.log(components0[3]);
                     $("#medi_"+el_taula).html(components0[4]);
                     return;
                 }
@@ -41,7 +60,8 @@ $(document).ready(function () {
         
         for (i = 0; i < sortides.length; i++) {
             components = sortides[i].split("@@LTIM@@");
-           // console.log(sortides[i]);
+            //Per totes les sortides feim dues peticions: Una per traduir la id de farmàcia al seu nom i un
+            //altre pel mateix amb els medicaments.
             
             textfarm = "farmacias@@LTIM@@lista";
             soapDBWSFarmacia_function_param(textfarm, trad_farmacia, [ components[0], components[4] ]);
