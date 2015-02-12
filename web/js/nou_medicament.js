@@ -5,8 +5,14 @@ $(document).ready(function () {
                 campDescripcio = $form.find("textarea[name='descripcio']").val(),
                 campCategoria = $form.find("select[name='categoria']").val(),
                 campCodiMedicament = $form.find("input[name='codiMedicament']").val(),
-                campQuantitatMedicament = $form.find("input[name='quantitatMedicament']").val();
-        doAltaMe(campCodiMedicament,campNom,campCategoria,campDescripcio,campQuantitatMedicament);
+                campQuantitatMedicament = $form.find("input[name='quantitatMedicament']").val(),
+                campNovaCategoria = $form.find("input[name='novaCategoria']").val();      
+        if (campNovaCategoria===undefined) {
+            alert('No hi ha res');
+        } else {
+            alert(campNovaCategoria);
+        }
+        doAltaMe(campCodiMedicament, campNom, campCategoria, campDescripcio, campQuantitatMedicament);
         return false;
     });
 });
