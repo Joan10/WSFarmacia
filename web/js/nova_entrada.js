@@ -10,18 +10,21 @@ $(document).ready(function () {
             var $form = $(this),
                     campQuantitat = $form.find("input[name='quantity']").val(),
                     campDataEntrada = $form.find("input[name='dataEntrada']").val(),
-                    campFarmacia = $form.find("select[name='lab_farms']").val();
 
             node = nodelist.split("_")[1];
-            campFarm = campFarmacia.split("_")[1];
-            console.log(" Q: "+campQuantitat + " farm: "+ campFarm + " node: "+ node);     
-            //doAltaNo(campCos,campDataInici,campDataFi);
+            console.log(" Q: "+campQuantitat + " Data: "+ campDataEntrada + " med: "+ node);     
+         
+            //Afegim l'entrada
             text = "entradas@@LTIM@@alta@@LTIM@@"+node+"@@LTIM@@"+campQuantitat+"@@LTIM@@"+campDataEntrada;
-            
             soapDBWSFarmacia(text);
-            window.location.replace("entrades.html");
-            return false;
+            //Sumam al magatzem
+            text = "medicamentos@@LTIM@@sumaenalmacen@@LTIM@@"+$("#"+nodelist).attr("name")+"@@LTIM@@"+campQuantitat;
+            soapDBWSFarmacia_noalert(text);
+          
+            $("#cos_pagina").load("nova_entrada.html"); 
+
         }
+        return false;
     }
     );
     
@@ -34,7 +37,7 @@ $(document).ready(function () {
         var cats = resp.split("@@LTIMNL@@");
         
         template0_cat="<li><a id=\"idcat_labidcat\">nom_cat</a><ul>"
-        template_med="<li class=\"fulla\" id=\"mediid_labmediid\" data-jstree='{\"icon\":\"images/tree_file.png\"}' >labnom_med</li>"
+        template_med="<li class=\"fulla\" name=\"labnom_med\" id=\"mediid_labmediid\" data-jstree='{\"icon\":\"images/tree_file.png\"}' >labnom_med - labquant_med en estoc</li>"
         templatef_cat="</ul></li>"
         
         function trad_medicament(resp0, id){
@@ -52,10 +55,11 @@ $(document).ready(function () {
                 //al del medicament
                 
                 if (id_cat == medicament[1]) {
+                    // Si trobam el medicament l'afegim
                     resultat=resultat+template_med.replace("labmediid",medicament[0]);
-                   // console.log(resultat);
-                    resultat=resultat.replace("labnom_med",medicament[4]);
-                    //console.log(resultat);
+                    resultat=resultat.replace(/labnom_med/g,medicament[4]);
+                    resultat=resultat.replace(/labquant_med/g,medicament[6]);
+
                 }
             }
             resultat+=templatef_cat;

@@ -79,13 +79,15 @@ function soapDBWSFarmacia(text) {
             '</S:Envelope>';
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4) {
-            alert(xmlhttp.status);
             if (xmlhttp.status == 200) {
                 var resp = xmlhttp.responseText;
                 var a = resp.indexOf("<return>") + 8;
                 var b = resp.indexOf("</return>");
                 resp = resp.substring(a,b);
-                alert(resp);
+                if (resp == "OK")
+                    alert("Operació realitzada correctament");
+                else 
+                    alert("Hi ha hagut algun problema amb la operació.\nComprova que els camps siguin correctes.");
             }
         }
     }
@@ -95,7 +97,37 @@ function soapDBWSFarmacia(text) {
 }
 
 
-
+//*******************************************
+//***** LLamada para manipular la BD
+//*******************************************
+function soapDBWSFarmacia_noalert(text) {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('POST', 'http://localhost:8080/WSFarmacia/WSFarmacias', true);
+    // Feim la crida SOAP
+    var sr =
+            '<?xml version="1.0" encoding="UTF-8"?><S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">' +
+            '<SOAP-ENV:Header/>' +
+            '<S:Body>' +
+            '<ns2:db xmlns:ns2="http://WS.ltimwsfarmacia/">' +
+            '<text>' + text + '</text>' +
+            '</ns2:db>' +
+            '</S:Body>' +
+            '</S:Envelope>';
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4) {
+            if (xmlhttp.status == 200) {
+                var resp = xmlhttp.responseText;
+                var a = resp.indexOf("<return>") + 8;
+                var b = resp.indexOf("</return>");
+                resp = resp.substring(a,b);
+     
+            }
+        }
+    }
+    xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+    xmlhttp.send(sr);
+    
+}
 
 //*******************************************
 //***** Cridada a la BBDD que guarda el resultat en un element del document.
@@ -113,7 +145,6 @@ function soapDBWSFarmacia(text) {
  * Una altra opció, la que funciona ara mateix, és la de passar per paràmetre a soapDBWSFarmacia una funció 
  * que rebria el paràmetre resp....
  *  
- * Tria la que vulguis. No sé que dirà el professor.
  */
 function soapDBWSFarmacia_id(text,elementID) {
     //text: Paràmetre de consulta SOPAR

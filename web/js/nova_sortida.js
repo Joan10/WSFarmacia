@@ -1,6 +1,7 @@
 
 $(document).ready(function () {
-
+    //Guardam les quantitats màximes de cada medicament aquí per controlar la sortida
+    var quant_maxim = {};
     
     
     $("#formulariNovaSortida").submit(function () {
@@ -14,13 +15,25 @@ $(document).ready(function () {
 
             node = nodelist.split("_")[1];
             campFarm = campFarmacia.split("_")[1];
-            console.log(" Q: "+campQuantitat + " farm: "+ campFarm + " node: "+ node);     
-            //doAltaNo(campCos,campDataInici,campDataFi);
-            text = "salidas@@LTIM@@alta@@LTIM@@"+campFarm+"@@LTIM@@"+node+"@@LTIM@@"+campQuantitat+"@@LTIM@@"+campDataSortida;
+            //console.log(" Q: "+campQuantitat + " farm: "+ campFarm + " node: "+ node);     
             
-            soapDBWSFarmacia(text);
-            window.location.replace("sortides.html");
-            return false;
+            if (parseInt(campQuantitat) <= quant_maxim[node]){
+                text = "salidas@@LTIM@@alta@@LTIM@@"+campFarm+"@@LTIM@@"+node+"@@LTIM@@"+campQuantitat+"@@LTIM@@"+campDataSortida;
+                soapDBWSFarmacia(text);
+
+                //Restam al magatzem
+                var count = -1*parseInt(campQuantitat);
+                text = "medicamentos@@LTIM@@sumaenalmacen@@LTIM@@"+$("#"+nodelist).attr("name")+"@@LTIM@@"+count.toString();
+
+                soapDBWSFarmacia_noalert(text);
+
+              //  window.location.replace("sortides.html");
+                $("#cos_pagina").load("nova_sortida.html"); 
+                return false;
+            }else{
+                alert("Atenció: No podeu treure més elements dels existents!")
+                return false;
+            }
         }
     }
     );
@@ -30,11 +43,13 @@ $(document).ready(function () {
 
     });
 
+
+    
     function pinta_categories(resp){
         var cats = resp.split("@@LTIMNL@@");
         
         template0_cat="<li><a id=\"idcat_labidcat\">nom_cat</a><ul>"
-        template_med="<li class=\"fulla\" id=\"mediid_labmediid\" data-jstree='{\"icon\":\"images/tree_file.png\"}' >labnom_med</li>"
+        template_med="<li class=\"fulla\" name=\"labnom_med\" id=\"mediid_labmediid\" data-jstree='{\"icon\":\"images/tree_file.png\"}' >labnom_med - labquant_med en estoc</li>"
         templatef_cat="</ul></li>"
         
         function trad_medicament(resp0, id){
@@ -54,8 +69,10 @@ $(document).ready(function () {
                 if (id_cat == medicament[1]) {
                     resultat=resultat+template_med.replace("labmediid",medicament[0]);
                    // console.log(resultat);
-                    resultat=resultat.replace("labnom_med",medicament[4]);
+                    resultat=resultat.replace(/labnom_med/g,medicament[4]);
+                    resultat=resultat.replace(/labquant_med/g,medicament[6]);
                     //console.log(resultat);
+                    quant_maxim[medicament[0]] = medicament[6];
                 }
             }
             resultat+=templatef_cat;

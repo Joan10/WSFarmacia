@@ -13,7 +13,7 @@ $(document).ready(function () {
                 campCos = $form.find("textarea[name='cos']").val();
         doAltaNo(campCos,campDataInici,campDataFi);
 
-        window.location.replace("farmacia.html");
+       // window.location.replace("farmacia.html");
         return false;
     }
     );
@@ -51,13 +51,15 @@ $(document).ready(function () {
     var noticies;
     function pinta_noticies(resp) {
 
-        var template = "<div class='noticia col-lg-4'><div class='seccio_cos'><h4>titol_noticia</h4>cos_noticia</div>\n\
+        var template = "<div class='noticia'><div class='seccio_cos'><h4>titol_noticia</h4>cos_noticia\n\
 <div style='text-align: left; width: 10%; margin-left: auto; margin-right: 0px;'>\n\
-<!-- Substituir el paràmetre de edita_noticia i elimina_noticia per la ID de la notícia en cada cas-->\n\
 <a href='#' id='boto_editanoticia_idnoticia' onclick='edita_noticia(idnoticia)'> \n\
-<img src='images/edit_button.png' alt='Edita notícia'  class='boto_med_image'></a><a href='#' \n\
+<img src='images/edit_button.png' alt='Edita notícia'  class='boto_med_image'></a></div></div></div>";
+        /*
+         * <a href='#' \n\
 id='boto_eliminanoticia_idnoticia' onclick='elimina_noticia(idnoticia)'>\n\
- <img src='images/delete_button.png' alt='Esborra notícia'  class='boto_med_image'></a></div></div>";
+ <img src='images/delete_button.png' alt='Esborra notícia'  class='boto_med_image'></a>
+         */
 
         var noticies = resp.split("@@LTIMNL@@");
         var components;
