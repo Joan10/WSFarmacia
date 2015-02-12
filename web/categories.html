@@ -1,0 +1,39 @@
+
+<script src="js/nou_medicament.js"></script>
+<script src="js/operacionsBaseDades.js"></script>
+<script src="js/categories.js"></script>
+
+
+<script>
+    //Acció en pitjar els botons
+    $('#boto_novaentrada_accepta').on('click', function (event) {
+        window.location = "medicaments.html"
+    });
+
+    $('#boto_novaentrada_cancela').on('click', function (event) {
+        window.location = "medicaments.html"
+    });
+
+
+</script>
+
+
+<div class="formulari">
+
+    <button type="submit" id="boto_novaentrada_accepta" class="btn btn-success">Accepta</button>
+    <button type="button" id="boto_novaentrada_cancela" class="btn btn-danger">Cancel·la</button>
+
+    <h3> Nou medicament</h3>
+
+    <div class="seccio_cos">
+        <div class="form-horizontal col-lg-6 col-lg-offset-0" >
+            <div id="taulaCategories"></div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+

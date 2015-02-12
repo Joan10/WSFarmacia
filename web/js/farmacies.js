@@ -19,8 +19,8 @@ $(document).ready(function () {
 
     function pintaFarmacies(resp) {
 
-        var templateBegin = "<table class='taula_dades sortable' id='table1' border='1' cellpadding='2' cellspacing='2'><thead><tr><th>Identificador</th><th>Nom</th><th>Password</th><th class='sorttable_nosort'> </th></tr></thead><tbody>";
-        var template = "<tr><td>joan</td><td>C1</td><td>password</td></tr>";
+        var templateBegin = "<table class='taula_dades sortable' id='table1' border='1' cellpadding='2' cellspacing='2'><thead><tr><th>Identificador</th><th>Nom</th><th class='sorttable_nosort'> </th></tr></thead><tbody>";
+        var template = "<tr><td>joan</td><td>C1</td></tr>";
         var templateEnd = "</tbody></table>";
 
         var medicaments = resp.split("@@LTIMNL@@");
@@ -36,7 +36,7 @@ $(document).ready(function () {
 
             medicament = template.replace("joan", components[0]);
             medicament = medicament.replace("C1", components[1]);
-            medicament = medicament.replace("password", components[2]);
+            //medicament = medicament.replace("password", components[2]);
 
             /*for (j = 0; j < components.length; j++) {
                 console.log(components[j]);

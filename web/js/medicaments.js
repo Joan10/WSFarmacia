@@ -15,7 +15,7 @@ $(document).ready(function () {
         $("#taulaMedicamnets").append(templateBegin);
         for (i = 0; i < medicaments.length; i++) {
             components = medicaments[i].split("@@LTIM@@");
-            console.log(medicaments[i]);
+            //console.log(medicaments[i]);
             medicament = "";
 
             medicament = template.replace("joan", components[4]);
@@ -23,7 +23,7 @@ $(document).ready(function () {
             medicament = medicament.replace("4", components[6]);
 
             for (j = 0; j < components.length; j++) {
-                console.log(components[j]);
+                //console.log(components[j]);
                 medicaments[components[0]]
             }                       
             $("#table1").append(medicament);    

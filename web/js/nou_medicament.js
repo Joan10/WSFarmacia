@@ -8,9 +8,9 @@ $(document).ready(function () {
                 campQuantitatMedicament = $form.find("input[name='quantitatMedicament']").val(),
                 campNovaCategoria = $form.find("input[name='novaCategoria']").val();      
         if (campNovaCategoria===undefined) {
-            alert('No hi ha res');
-        } else {
-            alert(campNovaCategoria);
+        }else
+        {
+            campCategoria=campNovaCategoria;
         }
         doAltaMe(campCodiMedicament, campNom, campCategoria, campDescripcio, campQuantitatMedicament);
         return false;
