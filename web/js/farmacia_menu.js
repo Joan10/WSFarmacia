@@ -1,3 +1,5 @@
+var FARMACIA = "milano"
+
 //Funció que retorna l'usuari en que ens trobam (admin o farmacèutic)
 function get_usuari(){
     var usuari = localStorage.getItem('_Usuari');
@@ -5,7 +7,36 @@ function get_usuari(){
 	if(usuari) {
 		//Si es així ja tenim el valor
 		usuari = JSON.parse(usuari);
-		return usuari
+		return usuari;
+	}else{
+		//Sino sortim
+		return "null";
+	}
+}
+
+function get_farmacia(){
+//Treu el valor de _Farm    
+        var farm = localStorage.getItem('_Farm');
+	//Miram si tenim guardada la variable que ens diu la farmacia
+	if(farm) {
+		//Si es així ja tenim el valor
+		farm = JSON.parse(farm);
+		return farm;
+	}else{
+		//Sino sortim
+		return "null";
+	}
+}
+
+
+function get_farmacia_id(){
+//Treu el valor de _Farm    
+        var farm = localStorage.getItem('_idFarm');
+	//Miram si tenim guardada la variable que ens diu la farmacia
+	if(farm) {
+		//Si es així ja tenim el valor
+		farm = JSON.parse(farm);
+		return farm;
 	}else{
 		//Sino sortim
 		return "null";
@@ -15,67 +46,77 @@ function get_usuari(){
 //Carregam el menú del farmacèutic.
 function loadXMLDoc_farmaceutic()
 {
+    var usuari = "farmaceutic";
+    localStorage.setItem('_Usuari', JSON.stringify(usuari));
+    //Guardam la farmàcia de l'usuari
+    localStorage.setItem('_Farm', JSON.stringify(FARMACIA));
 
 
-var usuari = "farmaceutic";
-localStorage.setItem('_Usuari', JSON.stringify(usuari));
+    window.location = "farmacia.html"
 
-
-window.location = "farmacia.html"
-
-var xmlhttp;
-if (window.XMLHttpRequest)
-  {// code for IE7+, Firefox, Chrome, Opera, Safari
-  xmlhttp=new XMLHttpRequest();
-  }
-else
-  {// code for IE6, IE5
-  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-  }
-xmlhttp.onreadystatechange=function()
-  {
-  if (xmlhttp.readyState==4 && xmlhttp.status==200)
-    {
-    document.getElementById("menu_ppal").innerHTML=xmlhttp.responseText;
-    document.getElementById("cos_pagina").innerHTML=get_usuari();
-    }
-  }
-alert("hola");
-xmlhttp.open("GET","menu_ppal_farmaceutic.html",true);
-xmlhttp.send();
+    var xmlhttp;
+    if (window.XMLHttpRequest)
+      {// code for IE7+, Firefox, Chrome, Opera, Safari
+      xmlhttp=new XMLHttpRequest();
+      }
+    else
+      {// code for IE6, IE5
+      xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+      }
+    xmlhttp.onreadystatechange=function()
+      {
+      if (xmlhttp.readyState==4 && xmlhttp.status==200)
+        {
+        document.getElementById("menu_ppal").innerHTML=xmlhttp.responseText;
+        document.getElementById("cos_pagina").innerHTML=get_usuari();
+        }
+      }
+    xmlhttp.open("GET","menu_ppal_farmaceutic.html",true);
+    xmlhttp.send();
 }
 
+function loadXMLDoc_onchanged(){
+    var historySelectList = $('select#menu_selector');
+    var selectedValue = $('option:selected', historySelectList).val();
+    
+    if (selectedValue == "Administrador magatzem"){
+        loadXMLDoc_administrador();
+    }else{
+        loadXMLDoc_farmaceutic();
+    }
+    
+}
 //Carregam el menú de l'administrador.
 function loadXMLDoc_administrador()
 {
 
-var usuari = "admin";
-localStorage.setItem('_Usuari', JSON.stringify(usuari));
+    var usuari = "admin";
+    localStorage.setItem('_Usuari', JSON.stringify(usuari));
 
 
-window.location = "farmacia.html"
+    window.location = "farmacia.html"
 
-var xmlhttp;
-if (window.XMLHttpRequest)
-  {// code for IE7+, Firefox, Chrome, Opera, Safari
-  xmlhttp=new XMLHttpRequest();
-  }
-else
-  {// code for IE6, IE5
-  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-  }
-xmlhttp.onreadystatechange=function()
-  {
-  if (xmlhttp.readyState==4 && xmlhttp.status==200)
-    {
-    document.getElementById("menu_ppal").innerHTML=xmlhttp.responseText;
-    document.getElementById("cos_pagina").innerHTML=get_usuari();
+    var xmlhttp;
+    if (window.XMLHttpRequest)
+      {// code for IE7+, Firefox, Chrome, Opera, Safari
+      xmlhttp=new XMLHttpRequest();
+      }
+    else
+      {// code for IE6, IE5
+      xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+      }
+    xmlhttp.onreadystatechange=function()
+      {
+      if (xmlhttp.readyState==4 && xmlhttp.status==200)
+        {
+        document.getElementById("menu_ppal").innerHTML=xmlhttp.responseText;
+        document.getElementById("cos_pagina").innerHTML=get_usuari();
 
-    }
-  }
+        }
+      }
 
-xmlhttp.open("GET","menu_ppal_administrador.html",true);
-xmlhttp.send();
+    xmlhttp.open("GET","menu_ppal_administrador.html",true);
+    xmlhttp.send();
 }
 
 
@@ -106,18 +147,38 @@ $( document ).ready(function() {
 
 		var usuari = "admin";
 		localStorage.setItem('_Usuari', JSON.stringify(usuari));
-	}
+                
 
+	}
+        
+        if (get_farmacia() == "null"){
+
+                //Guardam la farmàcia de l'usuari i la id
+                localStorage.setItem('_Farm', JSON.stringify(FARMACIA));
+        }
+               
+                function guarda_farmaciaid(resp){
+                    alert(resp);
+                }
+                text = "farmacias@@LTIM@@consulta@@LTIM@@"+FARMACIA;
+                soapDBWSFarmacia_function(text,guarda_farmaciaid);
+
+        
+        
 	console.log(get_usuari());	
 
-
+         var farm = get_farmacia();
+        $("#load_farm_menu").html("Farmacèutic - "+farm);
+        
 	//Miram quin usuari tenim i carregam un contingut o un altre.
 	if ( get_usuari() == "admin" ) {
-		$("#menu_ppal").load("menu_ppal_administrador.html"); 
-		document.getElementById("load_admin_menu").selected=true;
+            $("#menu_ppal").load("menu_ppal_administrador.html"); 
+            document.getElementById("load_admin_menu").selected=true;
 	}else if ( get_usuari() == "farmaceutic" ){
-		$("#menu_ppal").load("menu_ppal_farmaceutic.html"); 
-		document.getElementById("load_farm_menu").selected=true;
+           
+            //$("#load_farm_menu").attr("value","Farmacèutic - "+farm);
+            $("#menu_ppal").load("menu_ppal_farmaceutic.html"); 
+            document.getElementById("load_farm_menu").selected=true;
 	}
 
 	

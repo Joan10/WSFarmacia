@@ -23,9 +23,9 @@
                 <div class="navbar-header"> 
                     <a href="#" class="navbar-brand">Farmàcia</a>
                     <a style="position: absolute; right: 5%;" class="navbar-brand">     
-                        <select id="menu_selector" class="selectpicker">
-                            <option id="load_admin_menu" onclick="loadXMLDoc_administrador()" >Administrador magatzem</option>
-                            <option id="load_farm_menu"onclick="loadXMLDoc_farmaceutic()" >Farmacèutic</option>
+                        <select id="menu_selector" class="selectpicker" onchange="loadXMLDoc_onchanged(this)">
+                            <option id="load_admin_menu">Administrador magatzem</option>
+                            <option id="load_farm_menu">Farmacèutic</option>
                         </select>
                     </a>
                 </div>
