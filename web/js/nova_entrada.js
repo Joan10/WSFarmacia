@@ -1,7 +1,12 @@
 
 $(document).ready(function () {
 
-    
+        if(navigator.userAgent.indexOf("Firefox") != -1 ) 
+    //Si estam en Firefox no apareix el placeholder als camps de Data, per tant afegim
+    //un text explicant el format d'entrada de les dates
+        {
+            $("#data_entrada").attr("placeholder","Format AAAA-MM-DDThh:mm");
+        }
     
     $("#formulariNovaEntrada").submit(function () {
         nodelist = $("#arbre_medicaments").jstree('get_selected')[0];
@@ -15,7 +20,7 @@ $(document).ready(function () {
 
 
             function confirma(resp0){
-                //Aquesta funció s'executarà quan s'hagi realitzat correctament la funció d'afegir la sortida.
+                //Aquesta funció s'executarà quan s'hagi realitzat correctament la funció d'afegir l'entrada.
                 //Confirmarà i restarà al magatzem.
                 if (resp0 == "OK"){
                     //Sumam al magatzem
@@ -23,7 +28,7 @@ $(document).ready(function () {
                     soapDBWSFarmacia_noalert(text);
 
                     alert("Operació realitzada correctament");
-                    $("#cos_pagina").load("nova_sortida.html"); 
+                    $("#cos_pagina").load("nova_entrada.html"); 
                 }else{
                     alert("Hi ha hagut algun problema amb la operació.\nComprova que els camps siguin correctes.");
                 }

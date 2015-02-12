@@ -1,4 +1,4 @@
-var FARMACIA = "milano"
+var FARMACIA = "mascport"
 
 //Funció que retorna l'usuari en que ens trobam (admin o farmacèutic)
 function get_usuari(){
@@ -30,7 +30,7 @@ function get_farmacia(){
 
 
 function get_farmacia_id(){
-//Treu el valor de _Farm    
+//Treu el valor de _idFarm    
         var farm = localStorage.getItem('_idFarm');
 	//Miram si tenim guardada la variable que ens diu la farmacia
 	if(farm) {
@@ -156,18 +156,26 @@ $( document ).ready(function() {
                 //Guardam la farmàcia de l'usuari i la id
                 localStorage.setItem('_Farm', JSON.stringify(FARMACIA));
         }
-               
-                function guarda_farmaciaid(resp){
-                    alert(resp);
-                }
-                text = "farmacias@@LTIM@@consulta@@LTIM@@"+FARMACIA;
-                soapDBWSFarmacia_function(text,guarda_farmaciaid);
+         
+        if (get_farmacia_id() == "null"){
+
+            //Guardam la farmàcia de l'usuari i la id
+            function guarda_farmaciaid(resp){
+                farm = resp.split("@@LTIM@@");
+                //Guardam la id de la farmàcia
+                localStorage.setItem('_idFarm', JSON.stringify(farm[0]));
+            }
+            text = "farmacias@@LTIM@@consulta@@LTIM@@"+FARMACIA;
+            soapDBWSFarmacia_function(text,guarda_farmaciaid);
+        }            
+        
+
 
         
         
 	console.log(get_usuari());	
 
-         var farm = get_farmacia();
+        var farm = get_farmacia();
         $("#load_farm_menu").html("Farmacèutic - "+farm);
         
 	//Miram quin usuari tenim i carregam un contingut o un altre.
@@ -176,7 +184,6 @@ $( document ).ready(function() {
             document.getElementById("load_admin_menu").selected=true;
 	}else if ( get_usuari() == "farmaceutic" ){
            
-            //$("#load_farm_menu").attr("value","Farmacèutic - "+farm);
             $("#menu_ppal").load("menu_ppal_farmaceutic.html"); 
             document.getElementById("load_farm_menu").selected=true;
 	}

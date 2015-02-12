@@ -2,7 +2,13 @@
 $(document).ready(function () {
     //Guardam les quantitats màximes de cada medicament aquí per controlar la sortida
     var quant_maxim = {};
-    
+    if(navigator.userAgent.indexOf("Firefox") != -1 ) 
+    //Si estam en Firefox no apareix el placeholder als camps de Data, per tant afegim
+    //un text explicant el format d'entrada de les dates
+        {
+            $("#data_sortida").attr("placeholder","Format AAAA-MM-DDThh:mm");
+        }
+     
     
     $("#formulariNovaSortida").submit(function () {
         var ok=false;
@@ -37,7 +43,6 @@ $(document).ready(function () {
                         alert("Hi ha hagut algun problema amb la operació.\nComprova que els camps siguin correctes.");
                     }
                 }
-                campFarm="2"
                 text = "salidas@@LTIM@@alta@@LTIM@@"+campFarm+"@@LTIM@@"+node+"@@LTIM@@"+campQuantitat+"@@LTIM@@"+campDataSortida;
                 soapDBWSFarmacia_function(text,confirma);
                 

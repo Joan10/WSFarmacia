@@ -1,4 +1,3 @@
-var ID_FARMACIA = "2";
 $(document).ready(function () {
                              
     function pinta_comandes(resp) {
@@ -36,7 +35,7 @@ $(document).ready(function () {
         
         for (i = 0; i < comandes.length; i++) {
             components = comandes[i].split("@@LTIM@@");
-            if ( ID_FARMACIA == components[4] ) {
+            if ( get_farmacia_id() == components[4] ) {
                 //Per totes les comandes feim dues peticions: Una per traduir la id de farmàcia al seu nom i un
                 //altre pel mateix amb els medicaments.
 
@@ -49,7 +48,7 @@ $(document).ready(function () {
                 comanda = comanda.replace(/idmed/g, components[1]);
                 comanda = comanda.replace("dataihora", components[2]);
                 comanda = comanda.replace("quantitat", components[3]);
-                comanda = comanda.replace(/idfarm/g, components[4]);
+                comanda = comanda.replace(/idfarm/g, get_farmacia());
 
                 $("#body_comandes").append(comanda);
                 $("#body_comandes").hide();

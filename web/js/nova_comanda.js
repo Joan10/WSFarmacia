@@ -2,6 +2,12 @@
 $(document).ready(function () {
     //Guardam les quantitats màximes de cada medicament aquí per controlar la sortida
     var quant_maxim = {};
+    if(navigator.userAgent.indexOf("Firefox") != -1 ) 
+    //Si estam en Firefox no apareix el placeholder als camps de Data, per tant afegim
+    //un text explicant el format d'entrada de les dates
+        {
+            $("#data_comanda").attr("placeholder","Format AAAA-MM-DDThh:mm");
+        }
     
     
     $("#formulariNovaComanda").submit(function () {
@@ -15,6 +21,7 @@ $(document).ready(function () {
             node = nodelist.split("_")[1];  
 
             if (parseInt(campQuantitat) <= quant_maxim[node]){
+            //Comprovam que hi hagi elements suficients en estoc per la sortida que hem demanat.
                 function confirma(resp0){
                     //Aquesta funció s'executarà quan s'hagi realitzat correctament la funció d'afegir la sortida.
                     //Confirmarà i restarà al magatzem.
@@ -22,30 +29,31 @@ $(document).ready(function () {
                         //Restam al magatzem
                         var count = -1*parseInt(campQuantitat);
                         text = "medicamentos@@LTIM@@sumaenalmacen@@LTIM@@"+$("#"+nodelist).attr("name")+"@@LTIM@@"+count.toString();
-
+                        soapDBWSFarmacia_noalert(text);
                         alert("Operació realitzada correctament");
                         $("#cos_pagina").load("nova_comanda.html"); 
                     }else{
                         alert("Hi ha hagut algun problema amb la operació.\nComprova que els camps siguin correctes.");
                     }
                 }
-                campFarm = 
+                campFarm = get_farmacia_id();
                 //Afegim l'comanda
-                text = "salidas@@LTIM@@alta@@LTIM@@"+campFarm+"@@LTIM@@"+node+"@@LTIM@@"+campQuantitat+"@@LTIM@@"+campDataSortida;
+                text = "salidas@@LTIM@@alta@@LTIM@@"+campFarm+"@@LTIM@@"+node+"@@LTIM@@"+campQuantitat+"@@LTIM@@"+campDataComanda;
+                //alert(text);
                 soapDBWSFarmacia_function(text,confirma);
-
                 return false;
             }else{
                 alert("Atenció: No podeu treure més elements dels existents!");
                 return false;
             }
-        }
+        }                
+        alert("Atenció: Selecciona un medicament.");
         return false;
     }
     );
     
     $('#boto_novacomanda_cancela').on('click', function (event) {
-        window.location = "entrades.html";
+        window.location = "comandes.html";
 
     });
 
