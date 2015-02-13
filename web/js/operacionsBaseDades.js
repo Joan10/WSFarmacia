@@ -3,14 +3,23 @@ function doAltaFa(farmacia,pass) {
     soapDBWSFarmacia(text);
 }
 
-function doAltaCa() {
-    text = "categorias@@LTIM@@alta@@LTIM@@Antibióticos@@LTIM@@Medicamentos que contienen antibiótico@@LTIM@@antibiotico.png";
+function doAltaCa(categoria,descripcio) {
+    text = "categorias@@LTIM@@alta@@LTIM@@"+categoria+"@@LTIM@@"+descripcio+"@@LTIM@@antibiotico.png";
     soapDBWSFarmacia(text);
 }
 
 function doAltaMe(codi,nom,categoria,descripcio,quantitat) {
     text = "medicamentos@@LTIM@@alta@@LTIM@@"+categoria+"@@LTIM@@"+descripcio+"@@LTIM@@jola.png" +
                         "@@LTIM@@"+nom+"@@LTIM@@"+codi+"@@LTIM@@"+quantitat;
+    text = "medicamentos@@LTIM@@alta@@LTIM@@2@@LTIM@@descripción@@LTIM@@nombre.png" +
+                        "@@LTIM@@nombre@@LTIM@@00000X@@LTIM@@12";
+    /*alert('hola');
+    alert(nom);
+        alert(descripcio);
+        alert(categoria);
+        alert(codi);
+        alert(quantitat);*/
+    alert(text);
     soapDBWSFarmacia(text);
  //   alert('ok');
 }
@@ -95,8 +104,8 @@ function doConsultaNo() {
     soapDBWSFarmacia(text);
 }
 
-function doBajaFa() {
-    text = "farmacias@@LTIM@@baja@@LTIM@@Aragón";
+function doBajaFa(farmacia) {
+    text = "farmacias@@LTIM@@baja@@LTIM@@"+farmacia;
     soapDBWSFarmacia(text);
 }
 
@@ -105,8 +114,8 @@ function doBajaCa() {
     soapDBWSFarmacia(text);
 }
 
-function doBajaMe() {
-    text = "medicamentos@@LTIM@@baja@@LTIM@@nombre";
+function doBajaMe(medicamentBaixa) {
+    text = "medicamentos@@LTIM@@baja@@LTIM@@"+medicamentBaixa;
     soapDBWSFarmacia(text);
 }
 
