@@ -2,36 +2,14 @@
 <link rel="stylesheet" href="jstree/dist/themes/default/style.min.css" />
 
 <script src="jstree/dist/jstree.js"></script>
+<script src="js/nova_comanda.js"></script>
 <script src="js/arbre_medicaments.js"></script>
-<button type="button" id="boto_novacomanda_accepta" class="btn btn-default">Accepta</button>
+<script type="text/javascript" src="js/upload.js"></script>
+<script type="text/javascript" src="js/operacionsBaseDades.js"></script>
+<form class="form-horizontal" id="formulariNovaComanda">
+<button type="submit" id="boto_novacomanda_accepta" class="btn btn-default">Accepta</button>
 <button type="button" id="boto_novacomanda_cancela" class="btn btn-default">Cancel·la</button>
 
-<script>
-    //Acció en pitjar els botons
-    $('#boto_novacomanda_accepta').on('click', function (event) {
-
-        alert("!!");
-        var checked_ids = [];
-        nodelist = $("#arbre_medicaments").jstree('get_selected')[0];
-        if ($("#"+nodelist).hasClass("jstree-leaf")) {
-            
-            alert(nodelist+"és fulla");
-            
-        }
-        
-        window.location = "entrades.html";
-
-
-
-    });
-
-    $('#boto_novacomanda_cancela').on('click', function (event) {
-        window.location = "comandes.html"
-
-    });
-
-
-</script>
 
 <div class="formulari">
     <h3> Nova comanda</h3>
@@ -39,7 +17,7 @@
 
     <div class="seccio_cos ">
 
-        <form class="form-horizontal">
+        
 
             <div class="form-group">
                 <label for="input_nom" class="col-sm-2 control-label">Medicament</label>
@@ -50,23 +28,14 @@
 
                     <div id="arbre_medicaments" class="demo plugin-demo">
                         <ul>
-                            <li data-jstree='{"opened":true}'>Categories
-                                <ul>
-                                    <li>Categoria 1
-                                        <ul>
-                                            <li class="fulla" id="hola" data-jstree='{"icon":"images/tree_file.png"}' >Medicament 1</li>
-                                            <li class="fulla" id="hola2" data-jstree='{"icon":"images/tree_file.png"}' >Medicament 2</li>
-                                        </ul>
-                                    </li>
-                                    <li>Categoria 2</li>
-
-                                    <li>Categoria 3</li>
-
+                            <li data-jstree='{"opened":true}'>
+                                <ul id="arbre_per_substituir">
 
                                 </ul>
                             </li>
                         </ul>
                     </div>
+
                 </div>
             </div>
             <br>
@@ -80,33 +49,20 @@
             </div>
 
             <div class="form-group">
-                <label for="input_nom" class="col-sm-2 control-label">Farmàcia</label>
-                <div class="col-sm-10">
-                    <select class="form-control">
-                        <option value="volvo">Volvo</option>
-                        <option value="saab">Saab</option>
-                        <option value="mercedes">Mercedes</option>
-                        <option value="audi">Audi</option>
-                    </select> 
-                </div>              
-            </div>
-
-            <div class="form-group">
-                <label for="input_descripcio" class="col-sm-2 control-label">Comentari</label>
-                <div class="col-sm-10">
-                    <textarea class="form-control" rows="10" placeholder="Comentari sobre l'entrada"></textarea>
+                <label  for="input_descripcio" class="col-sm-2 control-label">Data de comanda</label>
+                <div class="col-sm-6">
+                    <input id="data_comanda" type="datetime-local"  class="form-control" name="dataComanda" >
                 </div>
             </div>
 
 
 
 
-        </form>
-
-
     </div>
+</div>
 
 
+        </form>
 
 
 

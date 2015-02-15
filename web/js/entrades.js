@@ -11,6 +11,18 @@ $(document).ready(function () {
         
 
         function trad_medicament(resp0, id){
+            
+            /* Aquesta funció s'encarrega de pintar el nom dels medicaments
+             * amb id igual al passat dins del vector id.
+             * 
+             * En aquest cas resp0 serà la resposta i id serà un array
+             * amb dos components: id[0] és l'id de l'element de la taula on es
+             * guardarà el resultat i id[1] és l'id del medicament.
+             * 
+             * Aquesta funció existeix perquè no tenim manera de treure
+             * el nom d'un medicament donada la seva ID sense modificar el ws.
+            */
+           
             var farms = resp0.split("@@LTIMNL@@");
             var el_taula = id[0];
             var id_medi = id[1];
@@ -27,7 +39,9 @@ $(document).ready(function () {
         
         for (i = 0; i < entrades.length; i++) {
             components = entrades[i].split("@@LTIM@@");
-           // console.log(entrades[i]);
+            
+            //Per totes les entrades feim la petició per traduir la id dels medicaments a nom.
+            
             textmed = "medicamentos@@LTIM@@lista";
             soapDBWSFarmacia_function_param(textmed, trad_medicament, [ components[0], components[1] ]);
 
@@ -44,7 +58,6 @@ $(document).ready(function () {
     }
 
     text = "entradas@@LTIM@@lista";
-//    soapDBWSFarmacia(text, "noti1", pinta_noticies());
     soapDBWSFarmacia_function(text, pinta_entrades);
     
     //Acció en pitjar el botó nova entrada

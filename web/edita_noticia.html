@@ -9,7 +9,7 @@
     <form id="formulariEditaNoticia">
 
         <!-- Pel disseny que he fet, és preferible que els botons estiguin a dalt -->
-        <button type="submit" id="boto_editanoticia_accepta" class="btn btn-default">Accepta</button>
+        <button type="submit" id="boto_editanoticia_accepta" class="btn btn-default">Modifica</button>
         <button type="button" id="boto_editanoticia_cancela" class="btn btn-default">Cancel·la</button>
         <h3> Edita notícia</h3>
 
@@ -22,12 +22,24 @@
         <div class="seccio_cos ">
 
             <div class="form-horizontal col-lg-6 col-lg-offset-0" >
+                
+                <h3 id="editaTitolNoticia" ></h3>
+
+
                 <div class="form-group">
-                    <label for="input_nom" class="col-sm-2 control-label">Id. de la Notícia</label>
-                    <div class="col-sm-10" id="texto">
-                        <input type="text" class="form-control" name="titol" id="editaTitolNoticia" placeholder="Introdueix el títol de la notícia...">
+                    <label for="input_descripcio" class="col-sm-2 control-label">Data d'inici</label>
+                    <div class="col-sm-6">
+                        <input type="text" id="dataInicial" class="form-control" name="dataInici" >
                     </div>
                 </div>
+
+                <div class="form-group">
+                    <label for="input_descripcio" class="col-sm-2 control-label">Data de fi</label>
+                    <div class="col-sm-6">
+                        <input type="text" id="dataFinal" class="form-control" name="dataFi" >
+                    </div>
+                </div>
+
 
                 <div class="form-group">
                     <label for="input_descripcio" class="col-sm-2 control-label">Cos</label>
@@ -35,17 +47,6 @@
                         <textarea class="form-control" rows="10" name="cos" id="editaCosNoticia" placeholder="Introdueix el cos de la notícia..."></textarea>
                     </div>
                 </div>
-
-                <!--<div class="form-group">
-                    <label for="input_descripcio" class="col-sm-2 control-label">Imatge</label>
-                    <div class="col-sm-10">
-                        <input type="file" id="files" name="files[]"/><output id="list"></output>
-                    </div>
-                </div>-->
-
-
-
-
 
             </div>
         </div>

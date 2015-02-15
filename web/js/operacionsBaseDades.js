@@ -3,14 +3,22 @@ function doAltaFa(farmacia,pass) {
     soapDBWSFarmacia(text);
 }
 
-function doAltaCa() {
-    text = "categorias@@LTIM@@alta@@LTIM@@Antibióticos@@LTIM@@Medicamentos que contienen antibiótico@@LTIM@@antibiotico.png";
+function doAltaCa(categoria,descripcio,imatge) {
+    text = "categorias@@LTIM@@alta@@LTIM@@"+categoria+"@@LTIM@@"+descripcio+"@@LTIM@@"+imatge;
     soapDBWSFarmacia(text);
 }
 
-function doAltaMe(codi,nom,categoria,descripcio,quantitat) {
-    text = "medicamentos@@LTIM@@alta@@LTIM@@"+categoria+"@@LTIM@@"+descripcio+"@@LTIM@@jola.png" +
-                        "@@LTIM@@"+nom+"@@LTIM@@"+codi+"@@LTIM@@"+quantitat;
+function doAltaMe(codi,nom,categoria,descripcio,quantitat,foto) {
+    text = "medicamentos@@LTIM@@alta@@LTIM@@"+categoria+"@@LTIM@@"+descripcio+"@@LTIM@@"+foto+"@@LTIM@@"+nom+"@@LTIM@@"+codi+"@@LTIM@@"+quantitat;
+//    text = "medicamentos@@LTIM@@alta@@LTIM@@2@@LTIM@@descripción@@LTIM@@nombre.png" +
+//                        "@@LTIM@@nombre@@LTIM@@00000X@@LTIM@@12";
+    /*alert('hola');
+    alert(nom);
+        alert(descripcio);
+        alert(categoria);
+        alert(codi);
+        alert(quantitat);*/
+    //alert(text);
     soapDBWSFarmacia(text);
  //   alert('ok');
 }
@@ -95,18 +103,18 @@ function doConsultaNo() {
     soapDBWSFarmacia(text);
 }
 
-function doBajaFa() {
-    text = "farmacias@@LTIM@@baja@@LTIM@@Aragón";
+function doBajaFa(farmacia) {
+    text = "farmacias@@LTIM@@baja@@LTIM@@"+farmacia;
     soapDBWSFarmacia(text);
 }
 
-function doBajaCa() {
-    text = "categorias@@LTIM@@baja@@LTIM@@Antibióticos";
+function doBajaCa(categoria) {
+    text = "categorias@@LTIM@@baja@@LTIM@@"+categoria;
     soapDBWSFarmacia(text);
 }
 
-function doBajaMe() {
-    text = "medicamentos@@LTIM@@baja@@LTIM@@nombre";
+function doBajaMe(medicamentBaixa) {
+    text = "medicamentos@@LTIM@@baja@@LTIM@@"+medicamentBaixa;
     soapDBWSFarmacia(text);
 }
 
@@ -126,9 +134,8 @@ function doModificacionMe() {
     soapDBWSFarmacia(text);
 }
 
-function doModificacionNo(id,cos) {
-    text = "noticias@@LTIM@@modificacion@@LTIM@@"+id+"@@LTIM@@"+cos+
-            "@@LTIM@@2014-11-16 00:00:00@@LTIM@@2014-11-25 00:00:00";
+function doModificacionNo(id,cos,dataInici,dataFi) {
+    text = "noticias@@LTIM@@modificacion@@LTIM@@"+id+"@@LTIM@@"+cos+"@@LTIM@@"+dataInici+"@@LTIM@@"+dataFi;
     soapDBWSFarmacia(text);
 }
 

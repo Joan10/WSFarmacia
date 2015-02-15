@@ -53,13 +53,14 @@ function soapUploadWSFarmacia(name, conte, lloc) {
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4) {
             if (xmlhttp.status == 200) {
-                alert('la respuesta es\n'+xmlhttp.responseText);
+             //   alert('la respuesta es\n'+xmlhttp.responseText);
             }
         }
     }
     xmlhttp.setRequestHeader('Content-Type', 'text/xml');
     xmlhttp.send(sr);
 }
+
 
 //*******************************************
 //***** LLamada para manipular la BD
